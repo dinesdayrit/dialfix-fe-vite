@@ -16,7 +16,18 @@ export default function UsernameMenu() {
     <div>
       <DropdownMenu>
         <DropdownMenuTrigger className="flex items-center px-3 font-bold hover:text-green-500 gap-2">
-          <CircleUserRound className="text-green-500" />
+          {user?.picture ? (
+            <img
+              src={user.picture}
+              alt={user.name || "User Avatar"}
+              width={24}
+              height={24}
+              className="rounded-full"
+            />
+          ) : (
+            <CircleUserRound className="h-6 w-6 text-green-500" />
+          )}
+
           {user?.email}
         </DropdownMenuTrigger>
         <DropdownMenuContent>
