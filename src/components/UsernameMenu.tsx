@@ -22,7 +22,7 @@ export default function UsernameMenu() {
         <DropdownMenuContent>
           <DropdownMenuItem>
             <Link
-              to="/manage-restaurant"
+              to="/manage-services"
               className="font-bold hover:text-green-500"
             >
               Manage your services
