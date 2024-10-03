@@ -5,8 +5,8 @@ const Hero = () => {
   const TEXTS = ["PC-Tech", "Plumber", "Electrician", "Mechanic"];
 
   return (
-    <div className="bg-gradient-to-tr from-cyan-200 to-green-500 rounded-bl-[300rem] rounded-tr-[300rem] rounded-t-[80rem] rounded-b-[80rem]">
-      <div className="relative pb-[110px] pt-[50px] lg:pt-[100px] max-w-6xl mx-auto">
+    <div className="bg-gradient-to-tr from-cyan-200 to-green-500 rounded-bl-[300rem] rounded-tr-[250rem] rounded-t-[80rem] rounded-b-[80rem]">
+      <div className="relative pb-[110px] pt-[50px] lg:pt-[80px] max-w-6xl mx-auto">
         <div className="container p-4">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4 lg:w-6/12">
