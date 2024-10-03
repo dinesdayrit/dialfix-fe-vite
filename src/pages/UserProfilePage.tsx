@@ -15,10 +15,12 @@ export default function UserProfilePage() {
   }
 
   return (
-    <UserProfileForm
-      currentUser={currentUser}
-      onSave={updateUser}
-      isLoading={isUpdateLoading}
-    />
+    <div className="container">
+      <UserProfileForm
+        currentUser={currentUser}
+        onSave={updateUser}
+        isLoading={isUpdateLoading}
+      />
+    </div>
   );
 }
