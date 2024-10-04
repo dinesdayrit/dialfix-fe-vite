@@ -58,6 +58,26 @@ export default function ManageServicesForm({ onSave }: Props) {
   const onSubmit = (formDataJson: ServicesFormData) => {
     const formData = new FormData();
 
+    formData.append("serviceProviderName", formDataJson.serviceProviderName);
+    formData.append("city", formDataJson.city);
+    formData.append("country", formDataJson.country);
+
+    formDataJson.serviceSector.forEach((serviceSector, index) => {
+      formData.append(`serviceSector[${index}]`, serviceSector);
+    });
+
+    formDataJson.serviceItems.forEach((serviceItems, index) => {
+      formData.append(`serviceItems[${index}][name]`, serviceItems.name);
+      formData.append(
+        `serviceItems[${index}][price]`,
+        (serviceItems.price * 100).toString()
+      );
+    });
+
+    if (formDataJson.imageFile) {
+      formData.append(`imageFile`, formDataJson.imageFile);
+    }
+
     console.log(formDataJson);
     onSave(formData);
   };

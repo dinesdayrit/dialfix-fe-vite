@@ -26,6 +26,7 @@ export default function ServicesSection() {
           <FormItem className="flex flex-col gap-2">
             {fields.map((_, index) => (
               <ServiceItemInput
+                key={index}
                 index={index}
                 removeMenuItem={() => remove(index)}
               />

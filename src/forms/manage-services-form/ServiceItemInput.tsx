@@ -38,7 +38,7 @@ export default function ServicesItemInput({ index, removeMenuItem }: Props) {
       />
       <FormField
         control={control}
-        name={`menuItems.${index}.price`}
+        name={`serviceItems.${index}.price`}
         render={({ field }) => (
           <FormItem>
             <FormLabel className="flex items-center gap-1">

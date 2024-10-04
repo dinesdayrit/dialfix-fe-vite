@@ -54,7 +54,6 @@ export const useCreateMyServices = () => {
       method: "POST",
       headers: {
         Authorization: `Bearer ${accessToken}`,
-        "Content-Type": "application/json",
       },
       body: servicesFormData,
     });
