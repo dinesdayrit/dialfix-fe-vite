@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import AuthCallbackPage from "@/pages/authCallbackPage";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import UserProfilePage from "./pages/UserProfilePage";
+import ManageServicesPage from "./pages/ManageServicesPage";
 
 function App() {
   return (
@@ -26,6 +27,14 @@ function App() {
           element={
             <Layout>
               <UserProfilePage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/manage-services"
+          element={
+            <Layout>
+              <ManageServicesPage />
             </Layout>
           }
         />

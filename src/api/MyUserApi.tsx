@@ -70,7 +70,7 @@ export const useCreateMyUser = () => {
   return mutation;
 };
 
-// Hook to create a new user
+// Hook to update a user
 type UpdateMyUserRequest = {
   name: string;
   addressLine1: string;
