@@ -8,6 +8,8 @@ import { Separator } from "@/components/ui/separator";
 import ServiceSectorSection from "./ServiceSectorSection";
 import ServicesSection from "./ServicesSection";
 import ImageSection from "./ImageSection";
+import { Services } from "@/types";
+import { useEffect } from "react";
 
 const formSchema = z
   .object({
@@ -41,9 +43,10 @@ type ServicesFormData = z.infer<typeof formSchema>;
 
 type Props = {
   onSave: (servicesFormData: FormData) => void;
+  services?: Services;
 };
 
-export default function ManageServicesForm({ onSave }: Props) {
+export default function ManageServicesForm({ onSave, services }: Props) {
   const form = useForm<ServicesFormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -54,6 +57,24 @@ export default function ManageServicesForm({ onSave }: Props) {
       serviceItems: [{ name: "", price: 0 }],
     },
   });
+
+  useEffect(() => {
+    if (!services) {
+      return;
+    }
+
+    const serviceItemsFormatted = services.serviceItems.map((item) => ({
+      ...item,
+      price: parseInt((item.price / 100).toFixed(2)),
+    }));
+
+    const updatedServiceProvider = {
+      ...services,
+      serviceItems: serviceItemsFormatted,
+    };
+
+    form.reset(updatedServiceProvider);
+  }, [form, services]);
 
   const onSubmit = (formDataJson: ServicesFormData) => {
     const formData = new FormData();
