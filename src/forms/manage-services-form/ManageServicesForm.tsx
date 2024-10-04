@@ -7,6 +7,7 @@ import DetailsSection from "./DetailsSections";
 import { Separator } from "@/components/ui/separator";
 import ServiceSectorSection from "./ServiceSectorSection";
 import ServicesSection from "./ServicesSection";
+import ImageSection from "./ImageSection";
 
 const formSchema = z
   .object({
@@ -72,6 +73,8 @@ export default function ManageServicesForm({ onSave }: Props) {
         <ServiceSectorSection />
         <Separator />
         <ServicesSection />
+        <Separator />
+        <ImageSection />
         <Separator />
         <Button type="submit">Submit</Button>
       </form>
