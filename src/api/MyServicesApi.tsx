@@ -66,5 +66,13 @@ export const useCreateMyServices = () => {
 
   const mutation = useMutation({ mutationFn: createMyServicesRequest });
 
+  if (mutation.isSuccess) {
+    toast.success("Vendor created!");
+  }
+
+  if (mutation.isError) {
+    toast.error("Unable to create vendor");
+  }
+
   return mutation;
 };
