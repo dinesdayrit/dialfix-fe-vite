@@ -85,7 +85,7 @@ export const useUpdateMyServices = () => {
       body: servicesFormData,
     });
 
-    if (!response) {
+    if (!response.ok) {
       throw new Error("Failed to update restaurant");
     }
 
@@ -102,5 +102,5 @@ export const useUpdateMyServices = () => {
     toast.error("Unable to update restaurant");
   }
 
-  return { mutation };
+  return mutation;
 };

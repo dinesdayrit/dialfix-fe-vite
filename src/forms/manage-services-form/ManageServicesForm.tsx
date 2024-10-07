@@ -104,7 +104,6 @@ export default function ManageServicesForm({
       formData.append(`imageFile`, formDataJson.imageFile);
     }
 
-    console.log(formDataJson);
     onSave(formData);
   };
 
