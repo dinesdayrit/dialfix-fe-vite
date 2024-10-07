@@ -76,3 +76,39 @@ export const useCreateMyServices = () => {
 
   return mutation;
 };
+
+export const useUpdateMyServices = () => {
+  const { getAccessTokenSilently } = useAuth0();
+
+  const updateServicesRequest = async (
+    servicesFormData: FormData
+  ): Promise<Services> => {
+    const accessToken = await getAccessTokenSilently();
+
+    const response = await fetch(`${API_BASE_URL}/api/my/services`, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      body: servicesFormData,
+    });
+
+    if (!response) {
+      throw new Error("Failed to update restaurant");
+    }
+
+    return response.json();
+  };
+
+  const mutation = useMutation({ mutationFn: updateServicesRequest });
+
+  if (mutation.isSuccess) {
+    toast.success("Restaurant Updated");
+  }
+
+  if (mutation.error) {
+    toast.error("Unable to update restaurant");
+  }
+
+  return { mutation };
+};
