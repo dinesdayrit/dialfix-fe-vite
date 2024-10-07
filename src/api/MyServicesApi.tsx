@@ -14,7 +14,6 @@ export const useGetMyServices = () => {
       method: "GET",
       headers: {
         Authorization: `Bearer ${accessToken}`,
-        "Content-Type": "application/json",
       },
     });
 
@@ -25,18 +24,11 @@ export const useGetMyServices = () => {
     return response.json();
   };
 
-  const {
-    data: services,
-    isLoading,
-    error,
-  } = useQuery({
+  const { data: services, isLoading } = useQuery({
     queryKey: ["fetchservices"],
     queryFn: getMyServicesRequest,
   });
 
-  if (error) {
-    toast.error(error.toString());
-  }
   return { services, isLoading };
 };
 
