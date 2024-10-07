@@ -19,7 +19,7 @@ export const useGetMyServices = () => {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to fetch Services");
+      throw new Error("No services Found. Add your Services");
     }
 
     return response.json();
