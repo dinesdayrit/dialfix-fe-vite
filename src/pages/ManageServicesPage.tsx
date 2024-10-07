@@ -3,8 +3,8 @@ import Spinner from "@/components/Spinner";
 import ManageServicesForm from "@/forms/manage-services-form/ManageServicesForm";
 
 export default function ManageServicesPage() {
-  const mutation = useCreateMyServices();
-  const { mutateAsync: createService } = mutation;
+  const { mutateAsync: createService, isPending: isCreateLoading } =
+    useCreateMyServices();
   const { services, isLoading: isGetLoading } = useGetMyServices();
 
   if (isGetLoading) {
@@ -13,7 +13,11 @@ export default function ManageServicesPage() {
 
   return (
     <div>
-      <ManageServicesForm services={services} onSave={createService} />
+      <ManageServicesForm
+        services={services}
+        onSave={createService}
+        isLoading={isCreateLoading}
+      />
     </div>
   );
 }

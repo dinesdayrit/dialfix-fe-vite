@@ -44,9 +44,14 @@ type ServicesFormData = z.infer<typeof formSchema>;
 type Props = {
   onSave: (servicesFormData: FormData) => void;
   services?: Services;
+  isLoading: boolean;
 };
 
-export default function ManageServicesForm({ onSave, services }: Props) {
+export default function ManageServicesForm({
+  onSave,
+  services,
+  isLoading,
+}: Props) {
   const form = useForm<ServicesFormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -117,7 +122,9 @@ export default function ManageServicesForm({ onSave, services }: Props) {
         <Separator />
         <ImageSection />
         <Separator />
-        <Button type="submit">Submit</Button>
+        <Button type="submit" disabled={isLoading}>
+          {isLoading ? "Loading..." : "Submit"}
+        </Button>
       </form>
     </Form>
   );
