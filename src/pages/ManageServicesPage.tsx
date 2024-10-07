@@ -5,13 +5,28 @@ import {
 } from "@/api/MyServicesApi";
 import Spinner from "@/components/Spinner";
 import ManageServicesForm from "@/forms/manage-services-form/ManageServicesForm";
+import { useEffect } from "react";
 
 export default function ManageServicesPage() {
-  const { mutate: createService, isPending: isCreateLoading } =
-    useCreateMyServices();
-  const { services, isLoading: isGetLoading } = useGetMyServices();
-  const { mutate: updateService, isPending: IsUpdateLoading } =
-    useUpdateMyServices();
+  const {
+    services,
+    isLoading: isGetLoading,
+    refetch: refetchServices,
+  } = useGetMyServices();
+  const {
+    mutate: createService,
+    isPending: isCreateLoading,
+    isSuccess: isCreateSuccess,
+  } = useCreateMyServices();
+  const {
+    mutate: updateService,
+    isPending: isUpdateLoading,
+    isSuccess: isUpdateSuccess,
+  } = useUpdateMyServices();
+
+  useEffect(() => {
+    refetchServices();
+  }, [isUpdateSuccess, isCreateSuccess]);
 
   const isEditing = !!services;
   if (isGetLoading) {
@@ -23,7 +38,7 @@ export default function ManageServicesPage() {
       <ManageServicesForm
         services={services}
         onSave={isEditing ? updateService : createService}
-        isLoading={isCreateLoading || IsUpdateLoading}
+        isLoading={isCreateLoading || isUpdateLoading}
       />
     </div>
   );

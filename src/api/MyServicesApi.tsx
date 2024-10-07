@@ -24,12 +24,16 @@ export const useGetMyServices = () => {
     return response.json();
   };
 
-  const { data: services, isLoading } = useQuery({
+  const {
+    data: services,
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["fetchservices"],
     queryFn: getMyServicesRequest,
   });
 
-  return { services, isLoading };
+  return { services, isLoading, refetch };
 };
 
 // Hook to create a new user
