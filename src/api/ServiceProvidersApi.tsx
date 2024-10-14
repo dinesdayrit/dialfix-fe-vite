@@ -4,7 +4,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const useFetchAllServiceProviders = () => {
   const fetchAllServiceProviders = async () => {
-    const response = await fetch(`${API_BASE_URL}/service-providers`);
+    const response = await fetch(`${API_BASE_URL}/api/serviceProviders`);
 
     if (!response.ok) {
       throw new Error("Failed to fetch service providers");

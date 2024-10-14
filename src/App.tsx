@@ -5,6 +5,7 @@ import AuthCallbackPage from "@/pages/authCallbackPage";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import UserProfilePage from "./pages/UserProfilePage";
 import ManageServicesPage from "./pages/ManageServicesPage";
+import ServiceProviderList from "./pages/ServiceProvidersListPage";
 
 function App() {
   return (
@@ -16,7 +17,16 @@ function App() {
             <HomePage />
           </Layout>
         }
-      ></Route>
+      />
+
+      <Route
+        path="/serviceProviders"
+        element={
+          <Layout>
+            <ServiceProviderList />
+          </Layout>
+        }
+      />
       <Route path="/auth-callback" element={<AuthCallbackPage />} />
 
       {/* protected routes */}
