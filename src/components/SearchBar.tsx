@@ -2,7 +2,7 @@ import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 
 export default function SearchBar() {
   return (
-    <form className="max-w-md">
+    <form className="max-w-full">
       <label
         htmlFor="default-search"
         className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
