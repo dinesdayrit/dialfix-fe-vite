@@ -20,7 +20,7 @@ function App() {
       />
 
       <Route
-        path="/search-service-provider"
+        path="/search-service-provider/:city"
         element={
           <Layout>
             <SearchPage />

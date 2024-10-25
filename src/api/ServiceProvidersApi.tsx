@@ -45,7 +45,7 @@ export const useSearchProviders = (searchState: SearchState, city?: string) => {
     if (!response.ok) {
       throw new Error("Failed to get providers");
     }
-
+    console.log(response);
     return response.json();
   };
 
