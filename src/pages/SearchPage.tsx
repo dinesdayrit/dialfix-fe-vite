@@ -4,7 +4,7 @@ import SearchBar, { SearchForm } from "@/components/SearchBar";
 import SearchResultsCard from "@/components/SearchResultsCard";
 import Spinner from "@/components/Spinner";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export type SearchState = {
   searchQuery: string;
@@ -40,10 +40,18 @@ export default function SearchPage() {
 
   if (isLoading) return <Spinner text="Getting Providers" />;
   if (!results?.data || !city) {
-    return <span>No results found</span>;
+    return (
+      <span className="flex items-center justify-center mt-5">
+        No results found: <br />
+        <Link
+          to="/"
+          className="ml-1 text-sm font-semibold underline cursor-pointer text-blue-500"
+        >
+          Change location
+        </Link>
+      </span>
+    );
   }
-
-  console.log(results);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-5 mx-12">
