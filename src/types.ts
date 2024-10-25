@@ -19,7 +19,7 @@ export type Services = {
   serviceProviderName: string;
   city: string;
   country: string;
-  cuisines: string[];
+  serviceSector: string[];
   serviceItems: ServiceItem[];
   imageUrl: string;
   lastUpdated: string;
