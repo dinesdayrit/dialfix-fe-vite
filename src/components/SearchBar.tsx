@@ -85,7 +85,10 @@ export default function SearchBar({
         >
           Reset
         </Button>
-        <Button type="submit" className="rounded-full bg-green-500">
+        <Button
+          type="submit"
+          className="rounded-full bg-blue-500 hover:bg-blue-500/80"
+        >
           Search
         </Button>
       </form>
