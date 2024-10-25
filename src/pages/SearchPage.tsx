@@ -1,8 +1,10 @@
-import { useFetchAllServiceProviders } from "@/api/ServiceProvidersApi";
+import { useSearchProviders } from "@/api/ServiceProvidersApi";
+import PaginationSelector from "@/components/PaginationSelector";
 import SearchBar, { SearchForm } from "@/components/SearchBar";
 import SearchResultsCard from "@/components/SearchResultsCard";
 import Spinner from "@/components/Spinner";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 export type SearchState = {
   searchQuery: string;
@@ -12,7 +14,7 @@ export type SearchState = {
 };
 
 export default function SearchPage() {
-  const { serviceProviders, isLoading, error } = useFetchAllServiceProviders();
+  const { city } = useParams();
   const [searchState, setSearchState] = useState<SearchState>({
     searchQuery: "",
     page: 1,
@@ -20,8 +22,14 @@ export default function SearchPage() {
     sortOption: "bestMatch",
   });
 
-  if (isLoading) return <Spinner text="Getting Providers" />;
-  if (error) return <p>Error fetching service providers</p>;
+  const { results, isLoading } = useSearchProviders(searchState, city);
+
+  const setPage = (page: number) => {
+    setSearchState((prevState) => ({
+      ...prevState,
+      page,
+    }));
+  };
 
   const setSearchQuery = (searchFormData: SearchForm) => {
     setSearchState((prevState) => ({
@@ -30,18 +38,31 @@ export default function SearchPage() {
     }));
   };
 
+  if (isLoading) return <Spinner text="Getting Providers" />;
+  if (!results?.data || !city) {
+    return <span>No results found</span>;
+  }
+
+  console.log(results);
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-5 mx-12">
       <div>service sectors</div>
 
-      <div id="main-content" className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5">
         <SearchBar
           searchQuery={searchState.searchQuery}
           placeHolder="Search Service Provider"
           onSubmit={setSearchQuery}
         />
-
-        <SearchResultsCard serviceProviders={serviceProviders} />
+        {results.data.map((providers) => (
+          <SearchResultsCard serviceProviders={providers} />
+        ))}
+        <PaginationSelector
+          page={results.pagination.page}
+          pages={results.pagination.pages}
+          onPageChange={setPage}
+        />
       </div>
     </div>
   );

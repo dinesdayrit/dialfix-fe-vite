@@ -24,10 +24,10 @@ export default function SearchResultsCard({ serviceProviders }: Props) {
         </h3>
         <div id="card-content" className="grid md:grid-cols-2 gap-2">
           <div className="flex flex-row flex-wrap">
-            {serviceProviders.cuisines.map((item, index) => (
+            {serviceProviders.serviceSector.map((item, index) => (
               <span className="flex">
                 <span>{item}</span>
-                {index < serviceProviders.cuisines.length - 1 && <Dot />}
+                {index < serviceProviders.serviceSector.length - 1 && <Dot />}
               </span>
             ))}
           </div>

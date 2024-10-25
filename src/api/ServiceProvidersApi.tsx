@@ -49,7 +49,11 @@ export const useSearchProviders = (searchState: SearchState, city?: string) => {
     return response.json();
   };
 
-  const { data: results, isLoading } = useQuery({
+  const {
+    data: results,
+    isLoading,
+    error,
+  } = useQuery({
     queryKey: ["searchProviders", searchState],
     queryFn: createSearchRequest,
     enabled: !!city,
@@ -58,5 +62,6 @@ export const useSearchProviders = (searchState: SearchState, city?: string) => {
   return {
     results,
     isLoading,
+    error,
   };
 };
