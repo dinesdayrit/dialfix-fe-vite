@@ -16,11 +16,20 @@ export type ServiceItem = {
 export type Services = {
   _id: string;
   user: string;
-  restaurantName: string;
+  serviceProviderName: string;
   city: string;
   country: string;
   cuisines: string[];
   serviceItems: ServiceItem[];
   imageUrl: string;
   lastUpdated: string;
+};
+
+export type ProvidersSearchResponse = {
+  data: Services[];
+  pagination: {
+    total: number;
+    page: number;
+    pages: number;
+  };
 };

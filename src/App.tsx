@@ -5,7 +5,7 @@ import AuthCallbackPage from "@/pages/authCallbackPage";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import UserProfilePage from "./pages/UserProfilePage";
 import ManageServicesPage from "./pages/ManageServicesPage";
-import ServiceProviderList from "./pages/ServiceProvidersListPage";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   return (
@@ -20,10 +20,10 @@ function App() {
       />
 
       <Route
-        path="/serviceProviders"
+        path="/search-service-provider"
         element={
           <Layout>
-            <ServiceProviderList />
+            <SearchPage />
           </Layout>
         }
       />

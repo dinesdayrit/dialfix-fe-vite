@@ -1,32 +1,94 @@
-import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { Form, FormControl, FormField, FormItem } from "./ui/form";
+import { Search } from "lucide-react";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
+import { useEffect } from "react";
 
-export default function SearchBar() {
+const formSchema = z.object({
+  searchQuery: z.string({
+    required_error: "Service Provider's name is required",
+  }),
+});
+
+export type SearchForm = z.infer<typeof formSchema>;
+
+type Props = {
+  onSubmit: (formData: SearchForm) => void;
+  placeHolder: string;
+  onReset?: () => void;
+  searchQuery?: string;
+};
+
+export default function SearchBar({
+  onSubmit,
+  onReset,
+  placeHolder,
+  searchQuery,
+}: Props) {
+  const form = useForm<SearchForm>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      searchQuery: "",
+    },
+  });
+
+  useEffect(() => {
+    form.reset({ searchQuery });
+  }, [form, searchQuery]);
+
+  const handleReset = () => {
+    form.reset({
+      searchQuery: "",
+    });
+
+    if (onReset) {
+      onReset();
+    }
+  };
+
   return (
-    <form className="max-w-full">
-      <label
-        htmlFor="default-search"
-        className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+    <Form {...form}>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className={`flex items-center gap-3 justify-between flex-row border-2 rounded-full p-2 ${
+          form.formState.errors.searchQuery && "border-red-400"
+        }`}
       >
-        Search
-      </label>
-      <div className="relative">
-        <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-          <MagnifyingGlassIcon className="w-6 h-6 text-gray-500 dark:text-gray-400" />
-        </div>
-        <input
-          type="search"
-          id="default-search"
-          className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="Search Service provider..."
-          required
+        <Search
+          strokeWidth={2.5}
+          size={30}
+          className="ml-1 text-blue-500 hidden md:block"
         />
-        <button
-          type="submit"
-          className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        <FormField
+          control={form.control}
+          name="searchQuery"
+          render={({ field }) => (
+            <FormItem className="flex-1">
+              <FormControl>
+                <Input
+                  {...field}
+                  className="border-none shadow-none text-xl focus-visible:ring-0"
+                  placeholder={placeHolder}
+                />
+              </FormControl>
+            </FormItem>
+          )}
+        />
+        <Button
+          onClick={handleReset}
+          type="button"
+          variant="outline"
+          className="rounded-full"
         >
+          Reset
+        </Button>
+        <Button type="submit" className="rounded-full bg-green-500">
           Search
-        </button>
-      </div>
-    </form>
+        </Button>
+      </form>
+    </Form>
   );
 }

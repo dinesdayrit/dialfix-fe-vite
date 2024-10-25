@@ -1,8 +1,16 @@
-import SearchBar from "@/components/SearchBar";
+import SearchBar, { SearchForm } from "@/components/SearchBar";
 import TransitionalText from "@/components/landingPage/TransitionalText";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
   const TEXTS = ["PC-Tech", "Plumber", "Electrician", "Mechanic"];
+  const navigate = useNavigate();
+
+  const handleSubmit = (searchFormValues: SearchForm) => {
+    navigate({
+      pathname: `/search-service-provider/${searchFormValues.searchQuery}`,
+    });
+  };
 
   return (
     <div className="bg-gradient-to-tr from-cyan-200 to-green-500 rounded-bl-[300rem] rounded-tr-[250rem] rounded-t-[80rem] rounded-b-[80rem]">
@@ -23,7 +31,10 @@ const Hero = () => {
                 <p className="mb-8 max-w-[480px] text-gray-800 text-body-color ">
                   Find the right fix, fast. Your trusted pros, all in one app.
                 </p>
-                <SearchBar />
+                <SearchBar
+                  placeHolder="Search by City or Town"
+                  onSubmit={handleSubmit}
+                />
                 <ul className="flex flex-wrap items-center mt-6">
                   <li>
                     <a
