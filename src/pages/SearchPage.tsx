@@ -6,6 +6,7 @@ import Spinner from "@/components/Spinner";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import ServiceProvidersInfo from "@/components/searchPage/ServiceProvidersInfo";
+import ServiceSectorFilter from "@/components/searchPage/ServiceSectorFilter";
 
 export type SearchState = {
   searchQuery: string;
@@ -21,12 +22,21 @@ export default function SearchPage() {
     selectedSectors: [],
   });
 
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const { results, isLoading } = useSearchProviders(searchState, city);
 
   const setPage = (page: number) => {
     setSearchState((prevState) => ({
       ...prevState,
       page,
+    }));
+  };
+
+  const setSelectedSectors = (selectedSectors: string[]) => {
+    setSearchState((prevState) => ({
+      ...prevState,
+      selectedSectors,
+      page: 1,
     }));
   };
 
@@ -54,7 +64,16 @@ export default function SearchPage() {
 
   return (
     <div className="container grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-5">
-      <div>service sectors</div>
+      <div>
+        <ServiceSectorFilter
+          selectedSectors={searchState.selectedSectors}
+          onChange={setSelectedSectors}
+          isExpanded={isExpanded}
+          onExpandedClick={() =>
+            setIsExpanded((prevIsExpanded) => !prevIsExpanded)
+          }
+        />
+      </div>
 
       <div className="flex flex-col gap-5">
         <SearchBar
