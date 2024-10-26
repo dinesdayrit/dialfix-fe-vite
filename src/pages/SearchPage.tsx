@@ -1,7 +1,7 @@
 import { useSearchProviders } from "@/api/ServiceProvidersApi";
-import PaginationSelector from "@/components/PaginationSelector";
+import PaginationSelector from "@/components/searchPage/PaginationSelector";
 import SearchBar, { SearchForm } from "@/components/SearchBar";
-import SearchResultsCard from "@/components/SearchResultsCard";
+import SearchResultsCard from "@/components/searchPage/SearchResultsCard";
 import Spinner from "@/components/Spinner";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
