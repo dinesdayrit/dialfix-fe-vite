@@ -10,8 +10,7 @@ import ServiceProvidersInfo from "@/components/searchPage/ServiceProvidersInfo";
 export type SearchState = {
   searchQuery: string;
   page: number;
-  selectedCuisines: string[];
-  sortOption: string;
+  selectedSectors: string[];
 };
 
 export default function SearchPage() {
@@ -19,8 +18,7 @@ export default function SearchPage() {
   const [searchState, setSearchState] = useState<SearchState>({
     searchQuery: "",
     page: 1,
-    selectedCuisines: [],
-    sortOption: "bestMatch",
+    selectedSectors: [],
   });
 
   const { results, isLoading } = useSearchProviders(searchState, city);
