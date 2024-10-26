@@ -21,11 +21,11 @@ export default function ServiceSectorFilter({
     const clickedSector = event.target.value;
     const isChecked = event.target.checked;
 
-    const newCuisinesList = isChecked
+    const newSectorsList = isChecked
       ? [...selectedSectors, clickedSector]
       : selectedSectors.filter((sector) => sector !== clickedSector);
 
-    onChange(newCuisinesList);
+    onChange(newSectorsList);
   };
 
   const handleSectorsReset = () => onChange([]);
@@ -59,7 +59,7 @@ export default function ServiceSectorFilter({
                   onChange={handleSectorsChange}
                 />
                 <Label
-                  htmlFor={`cuisine_${sector}`}
+                  htmlFor={`sector_${sector}`}
                   className={`flex flex-1 items-center cursor-pointer text-sm rounded-full px-4 py-2 font-semibold ${
                     isSelected
                       ? "border border-green-600 text-green-600"
