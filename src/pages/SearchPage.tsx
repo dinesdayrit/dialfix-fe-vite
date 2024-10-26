@@ -5,6 +5,7 @@ import SearchResultsCard from "@/components/searchPage/SearchResultsCard";
 import Spinner from "@/components/Spinner";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import ServiceProvidersInfo from "@/components/searchPage/ServiceProvidersInfo";
 
 export type SearchState = {
   searchQuery: string;
@@ -63,6 +64,7 @@ export default function SearchPage() {
           placeHolder="Search Service Provider"
           onSubmit={setSearchQuery}
         />
+        <ServiceProvidersInfo total={results.pagination.total} city={city} />
         {results.data.map((providers) => (
           <SearchResultsCard serviceProviders={providers} />
         ))}
