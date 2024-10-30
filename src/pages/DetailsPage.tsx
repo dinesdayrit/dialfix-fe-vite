@@ -2,6 +2,7 @@ import { useGetProvider } from "@/api/ServiceProvidersApi";
 import Spinner from "@/components/Spinner";
 import { Button } from "@/components/ui/button";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
+import { Dot } from "lucide-react";
 import { useParams } from "react-router-dom";
 
 export default function DetailsPage() {
@@ -30,17 +31,26 @@ export default function DetailsPage() {
         <p>
           {serviceProvider.city}, {serviceProvider.country}
         </p>
-        <label className="mt-6"> Service Offers:</label>
-        <ul className="outline rounded-md">
-          {serviceProvider.serviceItems.map((service, index) => (
-            <li key={index} className="p-4 grid grid-cols-2">
-              {service.name}{" "}
+
+        <div className="flex flex-col items-center">
+          <label className="mt-6"> Services Offer:</label>
+          <div className="border-2 border-slate-400 rounded-md p-2">
+            {serviceProvider.serviceItems.map((service, index) => (
+              <div className="p-2">
+                <p key={index} className="flex">
+                  <Dot />
+                  {service.name}
+                </p>
+              </div>
+            ))}
+
+            <div className="flex justify-center mt-4">
               <Button className="bg-blue-600 hover:bg-blue-600/90">
                 Book For Appointment
               </Button>
-            </li>
-          ))}
-        </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
