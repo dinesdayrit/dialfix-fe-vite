@@ -6,6 +6,7 @@ import ProtectedRoute from "./auth/ProtectedRoute";
 import UserProfilePage from "./pages/UserProfilePage";
 import ManageServicesPage from "./pages/ManageServicesPage";
 import SearchPage from "./pages/SearchPage";
+import DetailsPage from "./pages/DetailsPage";
 
 function App() {
   return (
@@ -24,6 +25,15 @@ function App() {
         element={
           <Layout>
             <SearchPage />
+          </Layout>
+        }
+      />
+
+      <Route
+        path="/detail/:serviceProviderId"
+        element={
+          <Layout>
+            <DetailsPage />
           </Layout>
         }
       />
