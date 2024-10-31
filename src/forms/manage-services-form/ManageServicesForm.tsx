@@ -16,6 +16,9 @@ const formSchema = z
     serviceProviderName: z.string({
       required_error: "Service Provider name is required",
     }),
+    addressLine1: z.string({
+      required_error: "Address is required",
+    }),
     city: z.string({
       required_error: "City is required",
     }),
@@ -23,7 +26,7 @@ const formSchema = z
       required_error: "Country is required",
     }),
     serviceSector: z.array(z.string()).nonempty({
-      message: "Please select at least one cuisine",
+      message: "Please select at least one sector",
     }),
     serviceItems: z.array(
       z.object({

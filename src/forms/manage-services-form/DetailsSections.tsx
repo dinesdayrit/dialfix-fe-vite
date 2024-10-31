@@ -30,6 +30,21 @@ const DetailsSection = () => {
           </FormItem>
         )}
       />
+
+      <FormField
+        control={control}
+        name="addressLine1"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>AddressLine1</FormLabel>
+            <FormControl>
+              <Input {...field} className="bg-white" />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+
       <div className="flex gap-4">
         <FormField
           control={control}
