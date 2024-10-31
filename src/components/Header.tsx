@@ -26,7 +26,7 @@ export default function Header() {
         <Link
           to="/"
           className={`flex items-center font-extrabold tracking-tight transition-all duration-500 ${
-            scrolled ? "text-2xl" : "text-3xl"
+            scrolled ? "text-2xl" : "text-4xl"
           } text-orange-500`}
         >
           dial
