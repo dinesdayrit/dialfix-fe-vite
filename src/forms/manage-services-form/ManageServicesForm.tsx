@@ -59,6 +59,7 @@ export default function ManageServicesForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       serviceProviderName: "",
+      addressLine1: "",
       city: "",
       country: "",
       serviceSector: [],
@@ -88,6 +89,7 @@ export default function ManageServicesForm({
     const formData = new FormData();
 
     formData.append("serviceProviderName", formDataJson.serviceProviderName);
+    formData.append("addressLine1", formDataJson.addressLine1);
     formData.append("city", formDataJson.city);
     formData.append("country", formDataJson.country);
 
