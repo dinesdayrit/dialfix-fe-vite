@@ -15,7 +15,7 @@ export default function UserProfilePage() {
   }
 
   return (
-    <div className="container">
+    <div className="container pt-10">
       <UserProfileForm
         currentUser={currentUser}
         onSave={updateUser}
