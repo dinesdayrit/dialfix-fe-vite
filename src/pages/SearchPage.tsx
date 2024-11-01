@@ -63,7 +63,7 @@ export default function SearchPage() {
   }
 
   return (
-    <div className="container grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-5">
+    <div className="container grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-5 py-10">
       <div>
         <ServiceSectorFilter
           selectedSectors={searchState.selectedSectors}
