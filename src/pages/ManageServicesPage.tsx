@@ -34,7 +34,7 @@ export default function ManageServicesPage() {
   }
 
   return (
-    <div>
+    <div className="container pt-10">
       <ManageServicesForm
         services={services}
         onSave={isEditing ? updateService : createService}
