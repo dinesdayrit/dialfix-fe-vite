@@ -18,7 +18,7 @@ export default function Header() {
 
   return (
     <div
-      className={`fixed flex items-center justify-between py-4 w-screen z-30 transition-colors duration-500 ${
+      className={`fixed flex items-center justify-between py-4 w-screen z-30 transition-colors duration-500 shadow-md ${
         scrolled ? "bg-slate-100 bg-opacity-90" : "bg-white bg-opacity-90"
       }`}
     >
