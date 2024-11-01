@@ -18,7 +18,7 @@ export default function DetailsPage() {
   }
 
   return (
-    <div className="container flex flex-col gap-6 pb-8">
+    <div className="container flex flex-col gap-6 pt-10">
       <AspectRatio ratio={16 / 5}>
         <img
           src={serviceProvider.imageUrl}
