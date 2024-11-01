@@ -13,7 +13,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="bg-gradient-to-tr from-cyan-200 to-green-500 rounded-bl-[300rem] rounded-tr-[250rem] rounded-t-[80rem] rounded-b-[80rem]">
+    <div className="bg-gradient-to-b from-cyan-300 to-green-300 ">
       <div className="relative pb-[110px] pt-[50px] lg:pt-[80px] max-w-6xl mx-auto">
         <div className="container p-4">
           <div className="-mx-4 flex flex-wrap">
