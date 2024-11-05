@@ -89,7 +89,7 @@ export default function Header() {
           <MobileNav />
         </div>
 
-        <div className="hidden md:block md:flex gap-2 items-center">
+        <div className="hidden md:flex gap-2 items-center">
           <div className="ml-4 text-sm text-gray-600">{city}</div>
           <MainNav />
         </div>
