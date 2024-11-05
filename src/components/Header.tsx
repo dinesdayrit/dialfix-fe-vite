@@ -4,64 +4,28 @@ import MobileNav from "./MobileNav";
 import MainNav from "./MainNav";
 import { useEffect, useState } from "react";
 
-// Define the structure for location coordinates
-type Coordinates = {
-  latitude: number;
-  longitude: number;
-};
-
-// Define the expected structure of the API response
-type WeatherApiResponse = {
-  name: string;
-};
-
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [location, setLocation] = useState<Coordinates | null>(null);
-  const [city, setCity] = useState<string>("Loading...");
+  const [location, setLocation] = useState<string | undefined>();
 
-  // Function to get city name from coordinates
-  async function fetchCityName(
-    latitude: number,
-    longitude: number
-  ): Promise<void> {
+  const getLocation = async () => {
     try {
-      const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=YOUR_API_KEY`
-      );
-      const data: WeatherApiResponse = await response.json();
-      setCity(data.name || "City not found");
+      const response = await fetch(`https://ipinfo.io/json`);
+      const data = await response.json();
+      setLocation(data.city || "City not found");
     } catch (error) {
-      console.error("Error fetching city:", error);
-      setCity("City not found");
+      console.error("Error fetching location:", error);
+      setLocation("City not found");
     }
-  }
-
-  function handleLocationClick() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position: GeolocationPosition) => {
-          const { latitude, longitude } = position.coords;
-          setLocation({ latitude, longitude });
-          fetchCityName(latitude, longitude);
-        },
-        (error: GeolocationPositionError) => {
-          console.error("Geolocation error:", error);
-          setCity("Location unavailable");
-        }
-      );
-    } else {
-      console.log("Geolocation not supported");
-      setCity("Geolocation not supported");
-    }
-  }
+  };
 
   useEffect(() => {
+    getLocation();
     const handleScroll = () => {
       setScrolled(window.scrollY > 0);
     };
+
     window.addEventListener("scroll", handleScroll);
-    handleLocationClick(); // Trigger location fetch on component mount
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -72,25 +36,26 @@ export default function Header() {
       }`}
     >
       <div className="container flex justify-between items-center">
-        <Link
-          to="/"
-          className={`flex items-center font-extrabold tracking-tight transition-all duration-500 ${
-            scrolled ? "text-2xl" : "text-4xl"
-          } text-orange-500`}
-        >
-          dial
-          <span className="text-green-600 flex justify-center items-center">
-            Fix <Wrench className="h-5" />
-          </span>
-        </Link>
+        <div className="flex items-baseline gap-1">
+          <Link
+            to="/"
+            className={`flex items-center font-extrabold tracking-tight transition-all duration-500 ${
+              scrolled ? "text-2xl" : "text-4xl"
+            } text-orange-500`}
+          >
+            dial
+            <span className="text-green-600 flex justify-center items-center">
+              Fix <Wrench className="h-5" />
+            </span>
+          </Link>
+          <div className="text-black">{location} City</div>
+        </div>
 
         <div className="md:hidden">
-          <div className="ml-4 text-sm text-gray-600">{city}</div>
           <MobileNav />
         </div>
 
-        <div className="hidden md:flex gap-2 items-center">
-          <div className="ml-4 text-sm text-gray-600">{city}</div>
+        <div className="hidden md:block">
           <MainNav />
         </div>
       </div>
