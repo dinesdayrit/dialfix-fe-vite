@@ -4,15 +4,64 @@ import MobileNav from "./MobileNav";
 import MainNav from "./MainNav";
 import { useEffect, useState } from "react";
 
+// Define the structure for location coordinates
+type Coordinates = {
+  latitude: number;
+  longitude: number;
+};
+
+// Define the expected structure of the API response
+type WeatherApiResponse = {
+  name: string;
+};
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [location, setLocation] = useState<Coordinates | null>(null);
+  const [city, setCity] = useState<string>("Loading...");
+
+  // Function to get city name from coordinates
+  async function fetchCityName(
+    latitude: number,
+    longitude: number
+  ): Promise<void> {
+    try {
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=YOUR_API_KEY`
+      );
+      const data: WeatherApiResponse = await response.json();
+      setCity(data.name || "City not found");
+    } catch (error) {
+      console.error("Error fetching city:", error);
+      setCity("City not found");
+    }
+  }
+
+  function handleLocationClick() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position: GeolocationPosition) => {
+          const { latitude, longitude } = position.coords;
+          setLocation({ latitude, longitude });
+          fetchCityName(latitude, longitude);
+        },
+        (error: GeolocationPositionError) => {
+          console.error("Geolocation error:", error);
+          setCity("Location unavailable");
+        }
+      );
+    } else {
+      console.log("Geolocation not supported");
+      setCity("Geolocation not supported");
+    }
+  }
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 0);
     };
-
     window.addEventListener("scroll", handleScroll);
+    handleLocationClick(); // Trigger location fetch on component mount
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -34,12 +83,14 @@ export default function Header() {
             Fix <Wrench className="h-5" />
           </span>
         </Link>
+
         <div className="md:hidden">
-          {" "}
+          <div className="ml-4 text-sm text-gray-600">{city}</div>
           <MobileNav />
         </div>
 
-        <div className="hidden md:block">
+        <div className="hidden md:block md:flex gap-2 items-center">
+          <div className="ml-4 text-sm text-gray-600">{city}</div>
           <MainNav />
         </div>
       </div>
