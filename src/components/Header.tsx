@@ -6,21 +6,8 @@ import { useEffect, useState } from "react";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [location, setLocation] = useState<string | undefined>();
-
-  const getLocation = async () => {
-    try {
-      const response = await fetch(`https://ipinfo.io/json`);
-      const data = await response.json();
-      setLocation(data.city || "City not found");
-    } catch (error) {
-      console.error("Error fetching location:", error);
-      setLocation("City not found");
-    }
-  };
 
   useEffect(() => {
-    getLocation();
     const handleScroll = () => {
       setScrolled(window.scrollY > 0);
     };
@@ -48,7 +35,6 @@ export default function Header() {
               Fix <Wrench className="h-5" />
             </span>
           </Link>
-          <div className="text-black">{location} City</div>
         </div>
 
         <div className="md:hidden">
