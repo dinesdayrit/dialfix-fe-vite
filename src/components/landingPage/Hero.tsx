@@ -1,7 +1,6 @@
 import useGetLocation from "@/api/GetLocation";
 import TransitionalText from "@/components/landingPage/TransitionalText";
 import { Link } from "react-router-dom";
-import { Button } from "../ui/button";
 
 const Hero = () => {
   const TEXTS = ["PC-Tech", "Plumber", "Electrician", "Mechanic"];
