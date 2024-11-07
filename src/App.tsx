@@ -7,6 +7,7 @@ import UserProfilePage from "./pages/UserProfilePage";
 import ManageServicesPage from "./pages/ManageServicesPage";
 import SearchPage from "./pages/SearchPage";
 import DetailsPage from "./pages/DetailsPage";
+import SearchForLocation from "./pages/SearchForLocation";
 
 function App() {
   return (
@@ -16,6 +17,15 @@ function App() {
         element={
           <Layout>
             <HomePage />
+          </Layout>
+        }
+      />
+
+      <Route
+        path="/search-service-provider"
+        element={
+          <Layout>
+            <SearchForLocation />
           </Layout>
         }
       />
