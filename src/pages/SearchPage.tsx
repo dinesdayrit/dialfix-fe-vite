@@ -53,7 +53,7 @@ export default function SearchPage() {
       <span className="flex items-center justify-center mt-5">
         No service providers found on your location: <br />
         <Link
-          to="/"
+          to="/search-service-provider"
           className="ml-1 text-sm font-semibold underline cursor-pointer text-blue-500"
         >
           Change location

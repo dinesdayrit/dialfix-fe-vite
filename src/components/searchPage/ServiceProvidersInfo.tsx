@@ -11,7 +11,7 @@ export default function ServiceProvidersInfo({ total, city }: Props) {
       <span>
         {total} Service Providers found in {city}
         <Link
-          to="/"
+          to="/search-service-provider"
           className="ml-1 text-sm font-semibold underline cursor-pointer text-blue-500"
         >
           Change location
