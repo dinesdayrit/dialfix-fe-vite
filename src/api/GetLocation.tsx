@@ -6,8 +6,8 @@ interface Coordinates {
   longitude: number;
 }
 
-interface OpenWeatherMapResponse {
-  name: string; // City name
+interface BigDataCloudResponse {
+  locality: string | undefined; // City name or locality (it may be undefined)
 }
 
 export default function useGetLocation() {
@@ -30,20 +30,26 @@ export default function useGetLocation() {
       }
     });
 
+    // Await the coordinates and log them for debugging
     const { latitude, longitude } = await getCoordinates;
-    console.log(latitude, longitude);
-    // Use OpenWeatherMap's reverse geocoding to get city name
+    console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
 
+    // Use BigDataCloud's reverse geocoding API to get the city name
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=e03623516fbb16080ff35109acdd25b1`
+      `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
     );
 
     if (!response.ok) {
       throw new Error("Error fetching location data");
     }
 
-    const data: OpenWeatherMapResponse = await response.json();
-    return data.name || "City not found"; // Return the city name
+    const data: BigDataCloudResponse = await response.json();
+
+    // Log the response for debugging
+    console.log("BigDataCloud response:", data);
+
+    // If the locality is not available, return a default message
+    return data.locality || "City not found";
   }
 
   // Use the useQuery hook to manage fetching the location
