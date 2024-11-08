@@ -33,6 +33,8 @@ export const useSearchProviders = (searchState: SearchState, city?: string) => {
     params.set("page", searchState.page.toString());
     params.set("selectedSectors", searchState.selectedSectors.join(","));
 
+    console.log(params.toString(), city);
+
     const response = await fetch(
       `${API_BASE_URL}/api/serviceProviders/search/${city}?${params.toString()}`
     );
@@ -48,6 +50,7 @@ export const useSearchProviders = (searchState: SearchState, city?: string) => {
     data: results,
     isLoading,
     error,
+    refetch,
   } = useQuery({
     queryKey: ["searchProviders", searchState],
     queryFn: createSearchRequest,
@@ -58,5 +61,6 @@ export const useSearchProviders = (searchState: SearchState, city?: string) => {
     results,
     isLoading,
     error,
+    refetch,
   };
 };

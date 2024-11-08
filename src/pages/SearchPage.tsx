@@ -3,7 +3,7 @@ import PaginationSelector from "@/components/searchPage/PaginationSelector";
 import SearchBar, { SearchForm } from "@/components/SearchBar";
 import SearchResultsCard from "@/components/searchPage/SearchResultsCard";
 import Spinner from "@/components/Spinner";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import ServiceProvidersInfo from "@/components/searchPage/ServiceProvidersInfo";
 import ServiceSectorFilter from "@/components/searchPage/ServiceSectorFilter";
@@ -23,7 +23,11 @@ export default function SearchPage() {
   });
 
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
-  const { results, isLoading } = useSearchProviders(searchState, city);
+  const { results, isLoading, refetch } = useSearchProviders(searchState, city);
+
+  useEffect(() => {
+    refetch();
+  }, [city, refetch]);
 
   const setPage = (page: number) => {
     setSearchState((prevState) => ({
