@@ -51,7 +51,7 @@ export default function SearchPage() {
     }));
   };
 
-  if (isLoading) return <Spinner text="Getting Providers" />;
+  if (isLoading) return <Spinner text={`Getting provider in ${city}`} />;
   if (!results?.data || !city) {
     return (
       <span className="flex items-center justify-center mt-5">
