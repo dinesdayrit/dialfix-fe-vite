@@ -1,5 +1,6 @@
 import useGetLocation from "@/api/GetLocation";
 import TransitionalText from "@/components/landingPage/TransitionalText";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
@@ -30,7 +31,7 @@ const Hero = () => {
                     to={`/search-service-provider/${data}`}
                     className="inline-flex items-center justify-center border p-4 rounded-full border-blue-500 md:text-xl bg-blue-600 text-white"
                   >
-                    Available Service Providers on your location
+                    Available Service Providers on your location <ArrowRight />
                   </Link>
 
                   <a
