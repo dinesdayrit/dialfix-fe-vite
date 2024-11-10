@@ -55,7 +55,7 @@ export default function SearchPage() {
   if (!results?.data || !city) {
     return (
       <span className="flex items-center justify-center mt-5">
-        No service providers found on your location: <br />
+        No service providers found on {city}: <br />
         <Link
           to="/search-service-provider"
           className="ml-1 text-sm font-semibold underline cursor-pointer text-blue-500"
