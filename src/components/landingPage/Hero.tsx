@@ -2,6 +2,7 @@ import useGetLocation from "@/api/GetLocation";
 import TransitionalText from "@/components/landingPage/TransitionalText";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const TEXTS = ["PC-Tech", "Plumber", "Electrician", "Mechanic"];
@@ -27,13 +28,18 @@ const Hero = () => {
                   Find the right fix, fast. Your trusted pros, all in one app.
                 </p>
                 <div className="flex flex-col items-start">
-                  <Link
-                    to={`/search-service-provider/${data}`}
-                    className="inline-flex items-center justify-center border p-4 rounded-full border-blue-500 md:text-xl bg-blue-600 text-white"
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
                   >
-                    Available Service Providers on your location <ArrowRight />
-                  </Link>
-
+                    <Link
+                      to={`/search-service-provider/${data}`}
+                      className="inline-flex items-center justify-center border p-4 rounded-full border-blue-500 md:text-xl bg-blue-600 text-white"
+                    >
+                      Available Service Providers in your location{" "}
+                      <ArrowRight />
+                    </Link>
+                  </motion.div>
                   <a
                     href="/#"
                     className="inline-flex items-center justify-center px-5 py-3 text-center text-base font-medium text-[#464646] hover:text-primary dark:text-white"
