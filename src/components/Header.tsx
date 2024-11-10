@@ -17,7 +17,7 @@ export default function Header() {
   }, []);
 
   return (
-    <div className="fixed flex flex-col shadow-md z-30">
+    <div className="fixed flex flex-col transition-colors duration-500 shadow-md z-30">
       <div className="bg-green-600 w-screen flex items-center justify-center">
         <p className="text-white">
           SUBSCRIBE TO OUR NEW LETTER FOR DISCOUNTS AND SPECIAL OFFERS!
@@ -26,7 +26,7 @@ export default function Header() {
 
       <div
         className={`flex items-center justify-between py-3 w-screen  transition-colors duration-500 shadow-md ${
-          scrolled ? "bg-slate-100 bg-opacity-90" : "bg-white bg-opacity-80"
+          scrolled ? "bg-slate-100 bg-opacity-90" : "bg-white"
         }`}
       >
         <div className="container flex justify-between items-center">
