@@ -17,32 +17,40 @@ export default function Header() {
   }, []);
 
   return (
-    <div
-      className={`fixed flex items-center justify-between py-4 w-screen z-30 transition-colors duration-500 shadow-md ${
-        scrolled ? "bg-slate-100 bg-opacity-90" : "bg-white bg-opacity-90"
-      }`}
-    >
-      <div className="container flex justify-between items-center">
-        <div className="flex items-baseline gap-1">
-          <Link
-            to="/"
-            className={`flex items-center font-extrabold tracking-tight transition-all duration-500 ${
-              scrolled ? "text-2xl" : "text-4xl"
-            } text-orange-500`}
-          >
-            dial
-            <span className="text-green-600 flex justify-center items-center">
-              Fix <Wrench className="h-5" />
-            </span>
-          </Link>
-        </div>
+    <div className="fixed flex flex-col shadow-md z-30">
+      <div className="bg-green-600 w-screen flex items-center justify-center">
+        <p className="text-white">
+          SUBSCRIBE TO OUR NEW LETTER FOR DISCOUNTS AND SPECIAL OFFERS!
+        </p>
+      </div>
 
-        <div className="md:hidden">
-          <MobileNav />
-        </div>
+      <div
+        className={`flex items-center justify-between py-3 w-screen  transition-colors duration-500 shadow-md ${
+          scrolled ? "bg-slate-100 bg-opacity-90" : "bg-white bg-opacity-80"
+        }`}
+      >
+        <div className="container flex justify-between items-center">
+          <div className="flex items-baseline gap-1">
+            <Link
+              to="/"
+              className={`flex items-center font-extrabold tracking-tight transition-all duration-500 ${
+                scrolled ? "text-2xl" : "text-4xl"
+              } text-orange-500`}
+            >
+              dial
+              <span className="text-green-600 flex justify-center items-center">
+                Fix <Wrench className="h-5" />
+              </span>
+            </Link>
+          </div>
 
-        <div className="hidden md:block">
-          <MainNav />
+          <div className="md:hidden">
+            <MobileNav />
+          </div>
+
+          <div className="hidden md:block">
+            <MainNav />
+          </div>
         </div>
       </div>
     </div>
