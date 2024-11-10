@@ -1,13 +1,10 @@
 import SearchBar, { SearchForm } from "@/components/SearchBar";
-import { useNavigate } from "react-router-dom";
 
 export default function SearchForLocation() {
-  const navigate = useNavigate();
-
   const handleSubmit = (searchFormValues: SearchForm) => {
-    navigate({
-      pathname: `/search-service-provider/${searchFormValues.searchQuery}`,
-    });
+    window.location.assign(
+      `/search-service-provider/${searchFormValues.searchQuery}`
+    );
   };
   return (
     <div className="container p-10">
