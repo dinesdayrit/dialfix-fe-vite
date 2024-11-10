@@ -18,7 +18,7 @@ export default function Header() {
 
   return (
     <div className="fixed flex flex-col transition-colors duration-500 shadow-md z-30">
-      <div className="bg-green-600 w-screen flex items-center justify-center">
+      <div className="bg-green-500 w-screen flex items-center justify-center">
         <p className="text-white">
           SUBSCRIBE TO OUR NEWS LETTER FOR DISCOUNTS AND SPECIAL OFFERS!
         </p>
