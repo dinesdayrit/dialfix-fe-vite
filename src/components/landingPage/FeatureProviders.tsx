@@ -2,6 +2,7 @@ import useGetLocation from "@/api/GetLocation";
 import { useSearchProviders } from "@/api/ServiceProvidersApi";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Spinner from "../Spinner";
 
 export default function FeatureProviders() {
   const { data } = useGetLocation();
@@ -14,7 +15,10 @@ export default function FeatureProviders() {
   };
 
   // Pass both `defaultSearchState` and `data` to useSearchProviders
-  const { results, refetch } = useSearchProviders(defaultSearchState, data);
+  const { results, isLoading, refetch } = useSearchProviders(
+    defaultSearchState,
+    data
+  );
 
   useEffect(() => {
     if (data) {
@@ -37,12 +41,18 @@ export default function FeatureProviders() {
         </Link>
 
         <div className="flex flex-col md:flex-row md:items-center justify-between mt-10">
-          {!results?.data?.length ? (
-            <>No Providers found</>
+          {isLoading ? (
+            <Spinner text="Getting Provider in your location" />
           ) : (
-            results.data.map((provider) => (
-              <div key={provider._id}>{provider.serviceProviderName}</div>
-            ))
+            <>
+              {!results?.data?.length ? (
+                <>No Providers found</>
+              ) : (
+                results.data.map((provider) => (
+                  <div key={provider._id}>{provider.serviceProviderName}</div>
+                ))
+              )}
+            </>
           )}
         </div>
       </div>
