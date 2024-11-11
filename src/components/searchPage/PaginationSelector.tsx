@@ -23,35 +23,37 @@ export default function PaginationSelector({
     pageNumbers.push(i);
   }
   return (
-    <Pagination>
-      <PaginationContent>
-        {page !== 1 && (
-          <PaginationItem>
-            <PaginationPrevious
-              href="#"
-              onClick={() => onPageChange(page - 1)}
-            />
-          </PaginationItem>
-        )}
+    <div className="pb-10">
+      <Pagination>
+        <PaginationContent>
+          {page !== 1 && (
+            <PaginationItem>
+              <PaginationPrevious
+                href="#"
+                onClick={() => onPageChange(page - 1)}
+              />
+            </PaginationItem>
+          )}
 
-        {pageNumbers.map((number) => (
-          <PaginationItem>
-            <PaginationLink
-              href="#"
-              onClick={() => onPageChange(number)}
-              isActive={page === number}
-            >
-              {number}
-            </PaginationLink>
-          </PaginationItem>
-        ))}
+          {pageNumbers.map((number) => (
+            <PaginationItem>
+              <PaginationLink
+                href="#"
+                onClick={() => onPageChange(number)}
+                isActive={page === number}
+              >
+                {number}
+              </PaginationLink>
+            </PaginationItem>
+          ))}
 
-        {page !== pageNumbers.length && (
-          <PaginationItem>
-            <PaginationNext href="#" onClick={() => onPageChange(page + 1)} />
-          </PaginationItem>
-        )}
-      </PaginationContent>
-    </Pagination>
+          {page !== pageNumbers.length && (
+            <PaginationItem>
+              <PaginationNext href="#" onClick={() => onPageChange(page + 1)} />
+            </PaginationItem>
+          )}
+        </PaginationContent>
+      </Pagination>
+    </div>
   );
 }
