@@ -36,7 +36,7 @@ export default function FeatureProviders() {
           See All Service Provider in {data}
         </Link>
 
-        <div className="flex items-center justify-between mt-10">
+        <div className="flex flex-col md:flex-row md:items-center justify-between mt-10">
           {!results?.data?.length ? (
             <>No Providers found</>
           ) : (
