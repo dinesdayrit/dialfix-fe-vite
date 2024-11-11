@@ -33,7 +33,7 @@ const brandsData = [
 
 export default function Brands() {
   return (
-    <section className="py-8 dark:bg-dark">
+    <section className="py-8 bg-slate-100">
       <h1 className="text-center pb-5">Trusted By</h1>
       <div className="container mx-auto">
         <div className="flex flex-wrap">
