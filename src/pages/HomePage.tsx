@@ -1,4 +1,5 @@
 import Brands from "@/components/landingPage/Brands";
+import FeatureProviders from "@/components/landingPage/FeatureProviders";
 import Hero from "@/components/landingPage/Hero";
 
 export default function HomePage() {
@@ -6,6 +7,7 @@ export default function HomePage() {
     <>
       <Hero />
       <Brands />
+      <FeatureProviders />
     </>
   );
 }
