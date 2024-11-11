@@ -1,8 +1,26 @@
 import useGetLocation from "@/api/GetLocation";
+import { useSearchProviders } from "@/api/ServiceProvidersApi";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function FeatureProviders() {
   const { data } = useGetLocation();
+
+  // Define a default searchState object with minimum required fields
+  const defaultSearchState = {
+    searchQuery: "",
+    page: 1,
+    selectedSectors: [],
+  };
+
+  // Pass both `defaultSearchState` and `data` to useSearchProviders
+  const { results, refetch } = useSearchProviders(defaultSearchState, data);
+
+  useEffect(() => {
+    if (data) {
+      refetch();
+    }
+  }, [data, refetch]);
 
   return (
     <div className="bg-pink-100">
@@ -17,6 +35,16 @@ export default function FeatureProviders() {
         >
           See All Service Provider in {data}
         </Link>
+
+        <div className="flex items-center justify-between mt-10">
+          {!results?.data?.length ? (
+            <>No Providers found</>
+          ) : (
+            results.data.map((provider) => (
+              <div key={provider._id}>{provider.serviceProviderName}</div>
+            ))
+          )}
+        </div>
       </div>
     </div>
   );
