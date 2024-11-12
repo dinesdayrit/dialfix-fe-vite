@@ -3,6 +3,7 @@ import { useSearchProviders } from "@/api/ServiceProvidersApi";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Spinner from "../Spinner";
+import SearchResultsCard from "../searchPage/SearchResultsCard";
 
 export default function FeatureProviders() {
   const { data } = useGetLocation();
@@ -49,7 +50,7 @@ export default function FeatureProviders() {
                 <>No Providers found</>
               ) : (
                 results.data.map((provider) => (
-                  <div key={provider._id}>{provider.serviceProviderName}</div>
+                  <SearchResultsCard serviceProviders={provider} />
                 ))
               )}
             </>
