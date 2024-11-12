@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Spinner from "../Spinner";
 import SearchResultsCard from "../searchPage/SearchResultsCard";
+import { ArrowUpRight } from "lucide-react";
 
 export default function FeatureProviders() {
   const { data } = useGetLocation();
@@ -29,16 +30,16 @@ export default function FeatureProviders() {
 
   return (
     <div className="bg-pink-100">
-      <div className="container p-10">
+      <div className="container py-10">
         <h1 className="text-3xl font-semibold text-gray-600">
           Book your trusted Service Provider in {data}!
         </h1>
 
         <Link
           to={`/search-service-provider/${data}`}
-          className="text-blue-600 hover:underline"
+          className="text-blue-600 hover:underline flex"
         >
-          See All Service Provider in {data}
+          See All Providers in {data} <ArrowUpRight />
         </Link>
 
         <div className="grid md:grid-cols-3 gap-2 mt-10">
