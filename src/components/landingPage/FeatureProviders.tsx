@@ -49,9 +49,11 @@ export default function FeatureProviders() {
               {!results?.data?.length ? (
                 <>No Providers found</>
               ) : (
-                results.data.map((provider) => (
-                  <SearchResultsCard serviceProviders={provider} />
-                ))
+                results.data
+                  .slice(0, 3)
+                  .map((provider) => (
+                    <SearchResultsCard serviceProviders={provider} />
+                  ))
               )}
             </>
           )}
