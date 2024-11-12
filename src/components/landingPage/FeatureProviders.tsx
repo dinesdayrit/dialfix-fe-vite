@@ -42,7 +42,7 @@ export default function FeatureProviders() {
           See All Providers in {data} <ArrowUpRight />
         </Link>
 
-        <div className="grid md:grid-cols-3 gap-2 mt-10">
+        <div className="grid md:grid-cols-3 gap-6 mt-10">
           {isLoading ? (
             <Spinner text="Getting Provider in your location" />
           ) : (
@@ -51,7 +51,7 @@ export default function FeatureProviders() {
                 <>No Providers found</>
               ) : (
                 results.data
-                  .slice(0, 3)
+                  .slice(0, 6)
                   .map((provider) => (
                     <SearchResultsCard serviceProviders={provider} />
                   ))
