@@ -1,5 +1,5 @@
 import { Services } from "@/types";
-import { AspectRatio } from "@radix-ui/react-aspect-ratio";
+import { AspectRatio } from "../ui/aspect-ratio";
 import { Dot } from "lucide-react";
 import { Link } from "react-router-dom";
 
