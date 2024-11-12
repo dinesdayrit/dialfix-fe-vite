@@ -41,7 +41,7 @@ export default function FeatureProviders() {
           See All Service Provider in {data}
         </Link>
 
-        <div className="flex flex-col md:flex-row md:items-center justify-between mt-10">
+        <div className="grid md:grid-cols-3 gap-2 mt-10">
           {isLoading ? (
             <Spinner text="Getting Provider in your location" />
           ) : (
