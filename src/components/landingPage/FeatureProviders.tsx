@@ -29,7 +29,7 @@ export default function FeatureProviders() {
   }, [data, refetch]);
 
   return (
-    <div className="bg-pink-100">
+    <div className="bg-cyan-100">
       <div className="container py-10">
         <h1 className="text-3xl font-semibold text-gray-600">
           Book your trusted Service Provider in {data}!
