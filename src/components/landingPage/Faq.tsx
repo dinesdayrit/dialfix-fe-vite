@@ -1,3 +1,10 @@
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
 export default function Faq() {
   const faqs = [
     {
@@ -34,15 +41,17 @@ export default function Faq() {
 
   return (
     <div className="container flex flex-col items-center justify-center p-12">
-      <h1>Frequently Asked Questions (FAQ)</h1>
-      <div className="faq-section">
+      <h1 className="text-2xl font-bold mb-6">
+        Frequently Asked Questions (FAQ)
+      </h1>
+      <Accordion type="single" collapsible className="w-full max-w-lg">
         {faqs.map((faq, index) => (
-          <div key={index} className="faq-item mb-4 flex flex-col items-center">
-            <h3 className="font-bold">{faq.question}</h3>
-            <p>{faq.answer}</p>
-          </div>
+          <AccordionItem key={index} value={`faq-${index}`}>
+            <AccordionTrigger>{faq.question}</AccordionTrigger>
+            <AccordionContent>{faq.answer}</AccordionContent>
+          </AccordionItem>
         ))}
-      </div>
+      </Accordion>
     </div>
   );
 }
