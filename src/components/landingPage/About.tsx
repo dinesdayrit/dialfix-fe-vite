@@ -6,7 +6,7 @@ export default function About() {
           About
         </h1>
 
-        <p className="font-serif text-slate-600 mb-6 text-justify">
+        <p className="font-serif text-slate-600 mb-6 text-justify md:text-lg">
           <span className="font-bold text-green-500 text-xl">DialFix</span> is
           your one-stop solution for booking appointments with trusted service
           providers, whether you need a quick fix or expert help for your home
@@ -15,7 +15,7 @@ export default function About() {
           just a few clicks. Our app makes it easy to schedule a time that works
           for you, ensuring that help is always just a tap away.
         </p>
-        <p className="font-serif text-slate-600 mb-2 text-justify">
+        <p className="font-serif text-slate-600 mb-2 text-justify md:text-lg">
           <span className="font-bold text-orange-500 text-xl">Our mission</span>{" "}
           is to bring convenience to your doorstep by bridging the gap between
           customers and service experts. With DialFix, you can browse available
