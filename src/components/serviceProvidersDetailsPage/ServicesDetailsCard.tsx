@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ServicesDetails from "./ServicesDetails";
+import { Availability } from "./Availabity";
 
 export default function ServicesDetailsCard() {
   const [isActive, setIsActive] = useState("services");
@@ -27,11 +28,7 @@ export default function ServicesDetailsCard() {
         </button>
       </div>
       <div className="py-8 px-6">
-        {isActive === "services" ? (
-          <ServicesDetails />
-        ) : (
-          <div>Availability</div>
-        )}
+        {isActive === "services" ? <ServicesDetails /> : <Availability />}
       </div>
     </div>
   );
