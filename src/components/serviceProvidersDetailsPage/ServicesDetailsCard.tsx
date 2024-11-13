@@ -1,6 +1,5 @@
-"use client";
-
 import { useState } from "react";
+import ServicesDetails from "./ServicesDetails";
 
 export default function ServicesDetailsCard() {
   const [isActive, setIsActive] = useState("services");
@@ -29,7 +28,7 @@ export default function ServicesDetailsCard() {
       </div>
       <div className="py-8 px-6">
         {isActive === "services" ? (
-          <div>Service Details Component</div>
+          <ServicesDetails />
         ) : (
           <div>Availability</div>
         )}
