@@ -14,7 +14,7 @@ export default function ServicesDetailsCard() {
             isActive === "services" ? "bg-blue-600 text-white" : "bg-slate-100"
           }`}
         >
-          Service Details
+          Service Providers Details
         </button>
         <button
           onClick={() => setIsActive("availability")}
