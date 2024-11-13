@@ -18,7 +18,6 @@ export default function ServicesDetails() {
             <Dot />
             {item.name}
           </h3>
-          <p>Rate Starts: Php{item.price}</p>
         </div>
       ))}
     </div>
