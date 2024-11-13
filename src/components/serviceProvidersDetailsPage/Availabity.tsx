@@ -51,7 +51,7 @@ export function Availability() {
         Select a Date and Time
       </h2>
       <div className="grid grid-cols-2 gap-4 lg:gap-0">
-        <div className="col-span-1">
+        <div className="sm:col-span-1 col-span-full">
           <Calendar
             mode="single"
             selected={date}
