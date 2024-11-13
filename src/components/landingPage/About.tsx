@@ -1,7 +1,7 @@
 export default function About() {
   return (
     <div className="bg-pink-100">
-      <div className="container py-16 ">
+      <div className="container py-24">
         <h1 className="text-3xl font-bold text-slate-700 mb-6 text-center">
           About
         </h1>
