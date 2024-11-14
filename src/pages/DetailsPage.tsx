@@ -1,7 +1,6 @@
 import { useGetProvider } from "@/api/ServiceProvidersApi";
 import ServicesDetailsCard from "@/components/serviceProvidersDetailsPage/ServicesDetailsCard";
 import Spinner from "@/components/Spinner";
-import { Button } from "@/components/ui/button";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import { useParams } from "react-router-dom";
 
