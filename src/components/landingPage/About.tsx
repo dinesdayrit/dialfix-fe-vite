@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export default function About() {
   return (
     <div className="bg-pink-100">
@@ -6,7 +8,13 @@ export default function About() {
           About
         </h1>
 
-        <p className="font-serif text-slate-600 mb-6 text-justify md:text-lg">
+        <motion.p
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="font-serif text-slate-600 mb-6 text-justify md:text-lg"
+        >
           <span className="font-bold text-green-500 text-xl">DialFix</span> is
           your one-stop solution for booking appointments with trusted service
           providers, whether you need a quick fix or expert help for your home
@@ -14,15 +22,22 @@ export default function About() {
           DialFix connects you with qualified professionals in your area with
           just a few clicks. Our app makes it easy to schedule a time that works
           for you, ensuring that help is always just a tap away.
-        </p>
-        <p className="font-serif text-slate-600 mb-2 text-justify md:text-lg">
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="font-serif text-slate-600 mb-2 text-justify md:text-lg"
+        >
           <span className="font-bold text-orange-500 text-xl">Our mission</span>{" "}
           is to bring convenience to your doorstep by bridging the gap between
           customers and service experts. With DialFix, you can browse available
           service providers, view ratings and reviews, and select the best match
           for your needs. Say goodbye to endless searching and unreliable
           help—DialFix is here to make your life easier.
-        </p>
+        </motion.p>
         <p className="font-bold text-slate-600 text-justify">
           Download DialFix today and experience hassle-free, dependable service
           booking right at your fingertips!
