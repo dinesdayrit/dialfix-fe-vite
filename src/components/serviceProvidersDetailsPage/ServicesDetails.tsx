@@ -1,6 +1,6 @@
 import { useGetProvider } from "@/api/ServiceProvidersApi";
 import { useParams } from "react-router-dom";
-import { ServiceItem } from "@/types"; // Adjust the path to your types if needed
+import { ServiceItem } from "@/types";
 import { Dot } from "lucide-react";
 
 export default function ServicesDetails() {
