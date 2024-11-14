@@ -7,21 +7,21 @@ export default function ServicesDetailsCard() {
 
   return (
     <div>
-      <div className="flex flex-row items center justify-between ">
+      <div className="flex flex-row items center justify-between">
         <button
           onClick={() => setIsActive("services")}
-          className={`w-full p-2 uppercase font-bold ${
-            isActive === "services" ? "bg-blue-600 text-white" : "bg-slate-100"
+          className={`w-full py-4 uppercase font-bold ${
+            isActive === "services" ? "bg-blue-600 text-white" : "bg-slate-300"
           }`}
         >
-          Service Providers Details
+          Providers Details
         </button>
         <button
           onClick={() => setIsActive("availability")}
-          className={`w-full p-2  uppercase tracking-widest font-bold ${
+          className={`w-full py-4  uppercase tracking-widest font-bold ${
             isActive === "availability"
               ? "bg-blue-600 text-white"
-              : "bg-slate-100"
+              : "bg-slate-300"
           }`}
         >
           Availability
