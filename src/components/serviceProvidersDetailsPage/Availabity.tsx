@@ -74,7 +74,7 @@ export function Availability() {
                 );
               })}
             </div>
-            <Button className="bg-green-600">
+            <Button className="bg-orange-600 hover:bg-orange-600/90 py-6">
               Book Appointment <ArrowRight />
             </Button>
           </div>
