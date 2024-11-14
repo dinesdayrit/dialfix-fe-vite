@@ -33,7 +33,7 @@ export default function DetailsPage() {
           {serviceProvider.city}, {serviceProvider.country}
         </p>
 
-        <div className="mt-2 border">
+        <div className="mt-2 border shadow-md">
           <ServicesDetailsCard />
         </div>
       </div>
