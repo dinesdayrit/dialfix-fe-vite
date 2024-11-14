@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Calendar } from "@/components/ui/calendar";
 import { Button } from "../ui/button";
+import { ArrowRight } from "lucide-react";
 
 export function Availability() {
   const [date, setDate] = React.useState<Date | undefined>(new Date());
@@ -56,15 +57,16 @@ export function Availability() {
         </div>
         <div className="sm:col-span-1 col-span-full">
           <div className="px-4">
-            <h2 className="pb-4 text-blue-700 text-center py-3 px-4 border border-blue-500">
+            <p className="text-blue-700">You have selected</p>
+            <h2 className="font-semibold text-3xl border-b-2 py-2">
               {formattedDate}
             </h2>
-            <div className="py-3 grid grid-cols-2 gap-2">
+            <div className="py-6 grid grid-cols-3 gap-2">
               {timeStamp.map((item, i) => {
                 return (
                   <Button
                     key={i}
-                    className="bg-blue-600 rounded-none text-sm text-center text-white p-2"
+                    className="bg-white rounded border text-black hover:bg-gray-100"
                   >
                     {item.time}
                     {item.period}
@@ -72,6 +74,9 @@ export function Availability() {
                 );
               })}
             </div>
+            <Button className="bg-green-600">
+              Book Appointment <ArrowRight />
+            </Button>
           </div>
         </div>
       </div>
