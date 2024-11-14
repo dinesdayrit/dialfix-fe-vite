@@ -9,7 +9,7 @@ export default function About() {
         </h1>
 
         <motion.p
-          initial={{ opacity: 0, x: -100 }}
+          initial={{ opacity: 0, x: -10 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2, ease: "easeOut" }}
@@ -25,7 +25,7 @@ export default function About() {
         </motion.p>
 
         <motion.p
-          initial={{ opacity: 0, x: 100 }}
+          initial={{ opacity: 0, x: 10 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2, ease: "easeOut" }}
