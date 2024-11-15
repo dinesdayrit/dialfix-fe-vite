@@ -17,6 +17,8 @@ export type Services = {
   _id: string;
   user: string;
   serviceProviderName: string;
+  serviceProviderAbout: string;
+  officeHours: string;
   addressLine1: string;
   city: string;
   country: string;
