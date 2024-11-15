@@ -31,9 +31,9 @@ export default function ServicesDetails() {
 
       <div className="border-b-2 mb-8 p-2">
         <p className="font-bold mb-2">Office Hours</p>
-        <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-        <p>Saturday: 10:00 AM - 4:00 PM</p>
-        <p>Sunday: Closed</p>
+        {serviceProvider.officeHours.split("\r\n").map((line, index) => (
+          <p key={index}>{line}</p>
+        ))}
       </div>
     </div>
   );
