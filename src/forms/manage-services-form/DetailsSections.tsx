@@ -7,6 +7,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { useFormContext } from "react-hook-form";
 
 const DetailsSection = () => {
@@ -73,6 +74,34 @@ const DetailsSection = () => {
           )}
         />
       </div>
+
+      <FormField
+        control={control}
+        name="serviceProviderAbout"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>About</FormLabel>
+            <FormControl>
+              <Textarea {...field} className="bg-white" />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+
+      <FormField
+        control={control}
+        name="officeHours"
+        render={({ field }) => (
+          <FormItem className="flex flex-col">
+            <FormLabel>Office Hours</FormLabel>
+            <FormControl>
+              <Textarea {...field} className="bg-white" />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
     </div>
   );
 };
