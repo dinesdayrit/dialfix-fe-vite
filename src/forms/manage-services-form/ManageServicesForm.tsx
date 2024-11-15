@@ -16,6 +16,10 @@ const formSchema = z
     serviceProviderName: z.string({
       required_error: "Service Provider name is required",
     }),
+    serviceProviderAbout: z.string().optional(),
+    officeHours: z.string({
+      required_error: "office hours is required",
+    }),
     addressLine1: z.string({
       required_error: "Address is required",
     }),
@@ -89,6 +93,13 @@ export default function ManageServicesForm({
     const formData = new FormData();
 
     formData.append("serviceProviderName", formDataJson.serviceProviderName);
+    if (formDataJson.serviceProviderAbout) {
+      formData.append(
+        "serviceProviderAbout",
+        formDataJson.serviceProviderAbout
+      );
+    }
+    formData.append("officeHours", formDataJson.officeHours);
     formData.append("addressLine1", formDataJson.addressLine1);
     formData.append("city", formDataJson.city);
     formData.append("country", formDataJson.country);
