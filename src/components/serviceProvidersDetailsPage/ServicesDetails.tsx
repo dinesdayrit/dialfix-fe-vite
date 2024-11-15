@@ -14,10 +14,7 @@ export default function ServicesDetails() {
     <div>
       <div className="border-b-2 p-2 mb-8">
         <p className="font-bold mb-2">About</p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
+        <p>{serviceProvider.serviceProviderAbout}</p>
       </div>
 
       <div className="border-b-2 mb-8">
