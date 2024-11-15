@@ -31,7 +31,7 @@ export default function ServicesDetails() {
 
       <div className="border-b-2 mb-8 p-2">
         <p className="font-bold mb-2">Office Hours</p>
-        {serviceProvider.officeHours.split("\r\n").map((line, index) => (
+        {serviceProvider.officeHours?.split("\r\n").map((line, index) => (
           <p key={index}>{line}</p>
         ))}
       </div>
