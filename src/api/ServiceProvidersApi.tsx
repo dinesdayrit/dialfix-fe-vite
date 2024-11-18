@@ -33,8 +33,6 @@ export const useSearchProviders = (searchState: SearchState, city?: string) => {
     params.set("page", searchState.page.toString());
     params.set("selectedSectors", searchState.selectedSectors.join(","));
 
-    console.log(params.toString(), city);
-
     const response = await fetch(
       `${API_BASE_URL}/api/serviceProviders/search/${city}?${params.toString()}`
     );
@@ -42,7 +40,7 @@ export const useSearchProviders = (searchState: SearchState, city?: string) => {
     if (!response.ok) {
       throw new Error("Failed to get providers");
     }
-    console.log(response);
+
     return response.json();
   };
 
