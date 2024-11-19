@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export default function useGetLocation() {
   async function fetchLocation() {
-    const response = await fetch(`https://ipinfo.io/json`);
+    const response = await fetch(`https://ipinfo.io/json`); //not accurate yet. (For Improvement)
     if (!response.ok) {
       throw new Error("Error fetching location data");
     }
