@@ -48,7 +48,15 @@ export default function FeatureProviders() {
           ) : (
             <>
               {!results?.data?.length ? (
-                <>No Providers found</>
+                <span className="flex md:items-center md:justify-center">
+                  No Providers found:
+                  <Link
+                    to="/search-service-provider"
+                    className="ml-1 text-sm font-semibold underline cursor-pointer text-blue-500"
+                  >
+                    Check Providers on other city
+                  </Link>
+                </span>
               ) : (
                 results.data
                   .slice(0, 4)
