@@ -27,6 +27,26 @@ export type Services = {
   imageUrl: string;
   lastUpdated: string;
 };
+export type OrderStatus =
+  | "placed"
+  | "confirmed"
+  | "inProgress"
+  | "serviceCompleted";
+
+export type Appointment = {
+  _id: string;
+  serviceProvider: Services;
+  user: User;
+  deliveryDetails: {
+    name: string;
+    addressLine1: string;
+    city: string;
+    email: string;
+    appointmentDate: string;
+  };
+  status: OrderStatus;
+  createdAt: string;
+};
 
 export type ProvidersSearchResponse = {
   data: Services[];
