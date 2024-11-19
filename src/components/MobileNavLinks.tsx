@@ -14,7 +14,7 @@ export default function MobileNavLinks() {
         to="/"
         className="flex bg-white items-center font-bold hover:text-orange-500"
       >
-        Appointments
+        My Appointments
       </Link>
 
       <Link

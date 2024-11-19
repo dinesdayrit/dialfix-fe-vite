@@ -11,7 +11,7 @@ export default function MainNav() {
       {isAuthenticated ? (
         <>
           <Link to="/" className=" hover:text-green-500">
-            Appointments
+            My Appointments
           </Link>
           <UsernameMenu />
         </>
