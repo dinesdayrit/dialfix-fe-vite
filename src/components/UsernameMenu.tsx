@@ -15,7 +15,7 @@ export default function UsernameMenu() {
   return (
     <div>
       <DropdownMenu>
-        <DropdownMenuTrigger className="flex items-center px-3 font-bold hover:text-green-500 gap-2">
+        <DropdownMenuTrigger className="flex items-center px-3  hover:text-green-500 gap-2">
           {user?.picture ? (
             <img
               src={user.picture}

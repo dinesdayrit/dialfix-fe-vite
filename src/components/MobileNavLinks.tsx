@@ -11,10 +11,10 @@ export default function MobileNavLinks() {
       </Link>
 
       <Link
-        to="/order-status"
+        to="/"
         className="flex bg-white items-center font-bold hover:text-orange-500"
       >
-        Order status
+        Appointments
       </Link>
 
       <Link

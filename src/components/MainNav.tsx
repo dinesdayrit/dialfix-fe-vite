@@ -10,8 +10,8 @@ export default function MainNav() {
     <span className="flex space-x-2 items-center">
       {isAuthenticated ? (
         <>
-          <Link to="/" className="font-bold hover:text-green-500">
-            Order Status
+          <Link to="/" className=" hover:text-green-500">
+            Appointments
           </Link>
           <UsernameMenu />
         </>
