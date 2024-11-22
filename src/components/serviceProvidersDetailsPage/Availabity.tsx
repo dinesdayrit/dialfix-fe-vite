@@ -2,6 +2,7 @@ import * as React from "react";
 import { Calendar } from "@/components/ui/calendar";
 import { Button } from "../ui/button";
 import { ArrowRight } from "lucide-react";
+import BookButton from "./BookButton";
 
 export function Availability() {
   const [date, setDate] = React.useState<Date | undefined>(new Date());
@@ -74,9 +75,7 @@ export function Availability() {
                 );
               })}
             </div>
-            <Button className="bg-orange-600 hover:bg-orange-600/90 py-6">
-              Book Appointment <ArrowRight />
-            </Button>
+            <BookButton />
           </div>
         </div>
       </div>
