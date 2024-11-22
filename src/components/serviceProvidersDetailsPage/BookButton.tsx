@@ -22,11 +22,7 @@ export default function BookButton() {
   };
 
   if (!isAuthenticated) {
-    return (
-      <Button onClick={onLogin} className="bg-orange-500 flex-1">
-        Log in to Book
-      </Button>
-    );
+    return <Button onClick={onLogin}>Log in to Book</Button>;
   }
 
   if (isAuthLoading) {
