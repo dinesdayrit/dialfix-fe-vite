@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Calendar } from "@/components/ui/calendar";
 import { Button } from "../ui/button";
-import { ArrowRight } from "lucide-react";
 import BookButton from "./BookButton";
 
 export function Availability() {
