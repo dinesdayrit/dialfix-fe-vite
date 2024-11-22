@@ -37,11 +37,11 @@ export type Appointment = {
   _id: string;
   serviceProvider: Services;
   user: User;
-  deliveryDetails: {
-    name: string;
-    addressLine1: string;
-    city: string;
-    email: string;
+  apointmentDetails: {
+    name?: string;
+    addressLine1?: string;
+    city?: string;
+    email?: string;
     appointmentDate: string;
   };
   status: OrderStatus;
