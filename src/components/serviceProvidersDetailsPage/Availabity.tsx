@@ -46,6 +46,10 @@ export function Availability() {
     },
   ];
 
+  const onCheckout = async () => {
+    alert("okay");
+  };
+
   return (
     <div>
       <h2 className="font-bold py-4 font-xl text-slate-600 uppercase">
@@ -74,7 +78,7 @@ export function Availability() {
                 );
               })}
             </div>
-            <BookButton />
+            <BookButton disabled={!formattedDate} onCheckout={onCheckout} />
           </div>
         </div>
       </div>
