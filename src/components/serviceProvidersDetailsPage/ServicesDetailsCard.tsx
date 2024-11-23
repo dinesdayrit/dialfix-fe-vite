@@ -3,7 +3,7 @@ import ServicesDetails from "./ServicesDetails";
 import { Availability } from "./Availabity";
 
 export default function ServicesDetailsCard() {
-  const [isActive, setIsActive] = useState("services");
+  const [isActive, setIsActive] = useState("availability");
 
   return (
     <div>
@@ -14,7 +14,7 @@ export default function ServicesDetailsCard() {
             isActive === "services" ? "bg-blue-600 text-white" : "bg-slate-300"
           }`}
         >
-          Providers Details
+          Services Details
         </button>
         <button
           onClick={() => setIsActive("availability")}
