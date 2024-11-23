@@ -35,7 +35,7 @@ export type OrderStatus =
 
 export type Appointment = {
   _id: string;
-  serviceProvider: Services;
+  ServiceProvider: Services;
   user: User;
   apointmentDetails: {
     name?: string;

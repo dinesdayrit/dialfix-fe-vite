@@ -71,7 +71,7 @@ function App() {
           }
         />
         <Route
-          path="/appointment-status"
+          path="/appointments-status"
           element={
             <Layout>
               <MyAppointmentsPage />
