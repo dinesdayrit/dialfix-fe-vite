@@ -42,7 +42,7 @@ export type Appointment = {
     addressLine1?: string;
     city?: string;
     email?: string;
-    appointmentDate: string;
+    appointmentDate?: string;
   };
   status: OrderStatus;
   createdAt: string;

@@ -2,10 +2,14 @@ import * as React from "react";
 import { Calendar } from "@/components/ui/calendar";
 import { Button } from "../ui/button";
 import BookButton from "./BookButton";
+import { useCreateAppointment } from "@/api/AppointmentApi";
+import { useParams } from "react-router-dom";
 
 export function Availability() {
   const [date, setDate] = React.useState<Date | undefined>(new Date());
   const formattedDate = `${date?.toString().split(" ").slice(0, 4).join(" ")}`;
+  const { mutate: createAppointment } = useCreateAppointment();
+  const { serviceProviderId } = useParams<{ serviceProviderId: string }>();
 
   const timeStamp = [
     {
@@ -46,10 +50,25 @@ export function Availability() {
     },
   ];
 
-  const onCheckout = async () => {
-    alert("okay");
-  };
+  const onCheckout = async (userFormData: any) => {
+    if (!date || !serviceProviderId) {
+      alert("Please select a date and ensure provider details are loaded.");
+      return;
+    }
 
+    const appointmentData = {
+      ServiceProvider: serviceProviderId,
+      apointmentDetails: {
+        email: userFormData.email,
+        name: userFormData.name,
+        addressLine1: userFormData.addressLine1,
+        city: userFormData.city,
+        appointmentDate: date.toISOString(),
+      },
+    };
+
+    createAppointment(appointmentData);
+  };
   return (
     <div>
       <h2 className="font-bold py-4 font-xl text-slate-600 uppercase">
