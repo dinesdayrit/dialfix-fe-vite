@@ -1,8 +1,12 @@
 import { useState } from "react";
 import ServicesDetails from "./ServicesDetails";
 import { Availability } from "./Availabity";
+import { useParams } from "react-router-dom";
+import { useGetProvider } from "@/api/ServiceProvidersApi";
 
 export default function ServicesDetailsCard() {
+  const { serviceProviderId } = useParams<{ serviceProviderId: string }>();
+  const { isLoading, serviceProvider } = useGetProvider(serviceProviderId);
   const [isActive, setIsActive] = useState("availability");
 
   return (
@@ -28,7 +32,14 @@ export default function ServicesDetailsCard() {
         </button>
       </div>
       <div className="py-8 px-6">
-        {isActive === "services" ? <ServicesDetails /> : <Availability />}
+        {isActive === "services" ? (
+          <ServicesDetails
+            isLoading={isLoading}
+            serviceProvider={serviceProvider ?? null}
+          />
+        ) : (
+          <Availability />
+        )}
       </div>
     </div>
   );

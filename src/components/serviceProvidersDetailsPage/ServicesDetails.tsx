@@ -1,12 +1,16 @@
-import { useGetProvider } from "@/api/ServiceProvidersApi";
-import { useParams } from "react-router-dom";
 import { ServiceItem } from "@/types";
 import { Dot } from "lucide-react";
 
-export default function ServicesDetails() {
-  const { serviceProviderId } = useParams<{ serviceProviderId: string }>();
-  const { isLoading, serviceProvider } = useGetProvider(serviceProviderId);
+type Props = {
+  isLoading: boolean;
+  serviceProvider: {
+    serviceProviderAbout: string;
+    serviceItems: ServiceItem[];
+    officeHours?: string;
+  } | null;
+};
 
+export default function ServicesDetails({ isLoading, serviceProvider }: Props) {
   if (isLoading) return <div>Loading...</div>;
   if (!serviceProvider) return <div>No service provider found.</div>;
 
