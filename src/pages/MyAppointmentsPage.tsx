@@ -30,7 +30,7 @@ export default function MyAppointmentsPage() {
             {appointment.apointmentDetails.appointmentDate}
           </p>
           <p>
-            <strong>Appointment Date:</strong> {appointment.status}{" "}
+            <strong>Appointment Status:</strong> {appointment.status}{" "}
             {appointment.status === "placed" && "(waiting for confirmation)"}
           </p>
         </div>
