@@ -57,7 +57,7 @@ export function Availability() {
     }
 
     const appointmentData = {
-      ServiceProvider: serviceProviderId,
+      serviceProvider: serviceProviderId,
       apointmentDetails: {
         email: userFormData.email,
         name: userFormData.name,
