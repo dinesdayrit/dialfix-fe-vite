@@ -8,6 +8,7 @@ import ManageServicesPage from "./pages/ManageServicesPage";
 import SearchPage from "./pages/SearchPage";
 import DetailsPage from "./pages/DetailsPage";
 import SearchForLocation from "./pages/SearchForLocation";
+import MyAppointmentsPage from "./pages/MyAppointmentsPage";
 
 function App() {
   return (
@@ -60,11 +61,20 @@ function App() {
             </Layout>
           }
         />
+
         <Route
           path="/manage-services"
           element={
             <Layout>
               <ManageServicesPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/appointment-status"
+          element={
+            <Layout>
+              <MyAppointmentsPage />
             </Layout>
           }
         />
