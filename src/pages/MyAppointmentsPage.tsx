@@ -35,7 +35,14 @@ export default function MyAppointmentsPage() {
             </p>
             <p className="uppercase text-lg">
               <strong>Appointment Status:</strong> {appointment?.status}{" "}
-              {appointment.status === "placed" && "(waiting for confirmation)"}
+              {appointment.status === "placed" && (
+                <>
+                  (waiting for confirmation){" "}
+                  <a className="text-sm underline text-red-400 cursor-pointer">
+                    cancel
+                  </a>
+                </>
+              )}
             </p>
           </li>
         ))}
