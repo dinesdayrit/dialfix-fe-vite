@@ -36,10 +36,10 @@ export default function ManageServicesPage() {
   }
 
   return (
-    <Tabs className="container mx-auto mt-10">
+    <Tabs defaultValue="manage-services" className="container mx-auto mt-10">
       <TabsList>
-        <TabsTrigger value="appointments">Appointments</TabsTrigger>
         <TabsTrigger value="manage-services">Manage Shop</TabsTrigger>
+        <TabsTrigger value="appointments">Appointments </TabsTrigger>
       </TabsList>
       <TabsContent value="manage-services">
         <ManageServicesForm
