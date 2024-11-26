@@ -1,10 +1,11 @@
 import { useGetMyAppointments } from "@/api/AppointmentApi";
+import Spinner from "@/components/Spinner";
 
 export default function MyAppointmentsPage() {
   const { appointments, isLoading } = useGetMyAppointments();
 
   if (isLoading) {
-    return <div>Loading your appointments...</div>;
+    return <Spinner text="Getting Appointments..." />;
   }
 
   if (!appointments || appointments.length === 0) {
