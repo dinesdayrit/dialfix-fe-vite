@@ -56,6 +56,9 @@ export default function ManageServicesPage() {
         value="appointments"
         className="space-y-5 bg-gray-50 pg-10 rounded-lg"
       >
+        <h2 className="text-2xl font-bold">
+          {servicesAppointments?.length} active appointment
+        </h2>
         {servicesAppointments?.map((appointment, index) => (
           <div key={index} className="bg-slate-500">
             <p>{appointment.apointmentDetails.addressLine1}</p>
