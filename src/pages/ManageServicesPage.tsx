@@ -9,6 +9,7 @@ import { Tabs } from "@/components/ui/tabs";
 import ManageServicesForm from "@/forms/manage-services-form/ManageServicesForm";
 import { TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useEffect } from "react";
+import MyServicesAppointmentCard from "@/components/manage-servicesPage/MyServicesAppointmentCard";
 
 export default function ManageServicesPage() {
   const {
@@ -59,11 +60,8 @@ export default function ManageServicesPage() {
         <h2 className="text-2xl font-bold">
           {servicesAppointments?.length} active appointment
         </h2>
-        {servicesAppointments?.map((appointment, index) => (
-          <div key={index} className="bg-slate-500">
-            <p>{appointment.apointmentDetails.addressLine1}</p>
-            <p>{appointment.status}</p>
-          </div>
+        {servicesAppointments?.map((appointment) => (
+          <MyServicesAppointmentCard appointment={appointment} />
         ))}
       </TabsContent>
     </Tabs>
