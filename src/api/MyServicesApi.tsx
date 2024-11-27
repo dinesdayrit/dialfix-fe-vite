@@ -108,3 +108,38 @@ export const useUpdateMyServices = () => {
 
   return mutation;
 };
+
+export const useGetMyServicesAppointments = () => {
+  const { getAccessTokenSilently } = useAuth0();
+
+  const getMyServicesAppointmentsRequest = async (): Promise<Services[]> => {
+    const accessToken = await getAccessTokenSilently();
+
+    const response = await fetch(
+      `${API_BASE_URL}/api/my/services/appointments`,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch services appointments");
+    }
+
+    return response.json();
+  };
+
+  const {
+    data: servicesAppointments,
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["fetchservicesAppointments"],
+    queryFn: getMyServicesAppointmentsRequest,
+  });
+
+  return { servicesAppointments, isLoading, refetch };
+};
