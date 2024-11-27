@@ -1,4 +1,4 @@
-import { Services } from "@/types";
+import { Appointment, Services } from "@/types";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
@@ -112,7 +112,7 @@ export const useUpdateMyServices = () => {
 export const useGetMyServicesAppointments = () => {
   const { getAccessTokenSilently } = useAuth0();
 
-  const getMyServicesAppointmentsRequest = async (): Promise<Services[]> => {
+  const getMyServicesAppointmentsRequest = async (): Promise<Appointment[]> => {
     const accessToken = await getAccessTokenSilently();
 
     const response = await fetch(

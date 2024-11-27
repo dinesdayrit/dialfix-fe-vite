@@ -1,6 +1,7 @@
 import {
   useCreateMyServices,
   useGetMyServices,
+  useGetMyServicesAppointments,
   useUpdateMyServices,
 } from "@/api/MyServicesApi";
 import Spinner from "@/components/Spinner";
@@ -25,6 +26,8 @@ export default function ManageServicesPage() {
     isPending: isUpdateLoading,
     isSuccess: isUpdateSuccess,
   } = useUpdateMyServices();
+  const { servicesAppointments } = useGetMyServicesAppointments();
+  console.log("servicesAppointments", servicesAppointments);
 
   useEffect(() => {
     refetchServices();
@@ -53,7 +56,12 @@ export default function ManageServicesPage() {
         value="appointments"
         className="space-y-5 bg-gray-50 pg-10 rounded-lg"
       >
-        <div>appointments</div>
+        {servicesAppointments?.map((appointment, index) => (
+          <div key={index} className="bg-slate-500">
+            <p>{appointment.apointmentDetails.addressLine1}</p>
+            <p>{appointment.status}</p>
+          </div>
+        ))}
       </TabsContent>
     </Tabs>
   );
