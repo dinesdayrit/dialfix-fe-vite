@@ -6,7 +6,7 @@ type AppointmentStatusInfo = {
   progressValue: number;
 };
 
-export const ORDER_STATUS: AppointmentStatusInfo[] = [
+export const APPOINTMENT_STATUS: AppointmentStatusInfo[] = [
   {
     label: "Awaiting Providers Confirmation",
     value: "placed",

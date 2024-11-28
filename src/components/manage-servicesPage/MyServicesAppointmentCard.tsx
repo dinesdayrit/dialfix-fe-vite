@@ -10,12 +10,18 @@ import {
   SelectTrigger,
 } from "../ui/select";
 import { useState } from "react";
+import { APPOINTMENT_STATUS } from "@/config/appointment-status-config";
 
 type Props = {
   appointment: Appointment;
 };
 export default function MyServicesAppointmentCard({ appointment }: Props) {
   const [status, setStatus] = useState<AppointmentStatus>(appointment.status);
+
+  const handleStatusChange = async (newStatus: AppointmentStatus) => {
+    alert(newStatus);
+    setStatus(newStatus);
+  };
   return (
     <Card>
       <CardHeader>
@@ -45,11 +51,20 @@ export default function MyServicesAppointmentCard({ appointment }: Props) {
       </CardHeader>
       <CardContent className="flex flex-col gap-6">
         <Label htmlFor="status">What is the status of this order?</Label>
-        <Select value={status}>
+        <Select
+          value={status}
+          onValueChange={(value) =>
+            handleStatusChange(value as AppointmentStatus)
+          }
+        >
           <SelectTrigger id="status">
             <SelectValue placeholder="Status" />
           </SelectTrigger>
-          <SelectContent position="popper"></SelectContent>
+          <SelectContent position="popper">
+            {APPOINTMENT_STATUS.map((status) => (
+              <SelectItem value={status.value}>{status.label}</SelectItem>
+            ))}
+          </SelectContent>
         </Select>
       </CardContent>
     </Card>
