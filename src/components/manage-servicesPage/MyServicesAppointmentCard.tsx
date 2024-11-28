@@ -46,15 +46,10 @@ export default function MyServicesAppointmentCard({ appointment }: Props) {
       <CardContent className="flex flex-col gap-6">
         <Label htmlFor="status">What is the status of this order?</Label>
         <Select value={status}>
-          <SelectTrigger>
-            {" "}
-            <SelectValue placeholder={appointment.status} />
+          <SelectTrigger id="status">
+            <SelectValue placeholder="Status" />
           </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="light"></SelectItem>
-            <SelectItem value="dark">Dark</SelectItem>
-            <SelectItem value="system">System</SelectItem>
-          </SelectContent>
+          <SelectContent position="popper"></SelectContent>
         </Select>
       </CardContent>
     </Card>
