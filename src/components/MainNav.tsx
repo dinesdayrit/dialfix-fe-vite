@@ -17,7 +17,7 @@ export default function MainNav() {
         </>
       ) : (
         <Button
-          className="text-sm font-semibold leading-6 py-5 px-6 bg-blue-700 hover:bg-blue-700/80"
+          className="text-sm font-bold leading-6 py-5 px-6 bg-zinc-200 hover:bg-zinc-300/80 text-black"
           onClick={async () => await loginWithRedirect()}
         >
           <LogInIcon /> Log in
