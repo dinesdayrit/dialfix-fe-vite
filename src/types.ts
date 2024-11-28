@@ -27,7 +27,7 @@ export type Services = {
   imageUrl: string;
   lastUpdated: string;
 };
-export type OrderStatus =
+export type AppointmentStatus =
   | "placed"
   | "confirmed"
   | "inProgress"
@@ -44,7 +44,7 @@ export type Appointment = {
     email?: string;
     appointmentDate?: string;
   };
-  status: OrderStatus;
+  status: AppointmentStatus;
   createdAt: string;
 };
 

@@ -1,12 +1,21 @@
-import { Appointment } from "@/types";
+import { Appointment, AppointmentStatus } from "@/types";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Label } from "../ui/label";
+import {
+  Select,
+  SelectItem,
+  SelectValue,
+  SelectContent,
+  SelectTrigger,
+} from "../ui/select";
+import { useState } from "react";
 
 type Props = {
   appointment: Appointment;
 };
 export default function MyServicesAppointmentCard({ appointment }: Props) {
+  const [status, setStatus] = useState<AppointmentStatus>(appointment.status);
   return (
     <Card>
       <CardHeader>
@@ -36,7 +45,17 @@ export default function MyServicesAppointmentCard({ appointment }: Props) {
       </CardHeader>
       <CardContent className="flex flex-col gap-6">
         <Label htmlFor="status">What is the status of this order?</Label>
-        {appointment.status}
+        <Select value={status}>
+          <SelectTrigger>
+            {" "}
+            <SelectValue placeholder={appointment.status} />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="light"></SelectItem>
+            <SelectItem value="dark">Dark</SelectItem>
+            <SelectItem value="system">System</SelectItem>
+          </SelectContent>
+        </Select>
       </CardContent>
     </Card>
   );
