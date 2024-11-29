@@ -38,7 +38,8 @@ export default function useGetLocation() {
     console.log(data);
 
     // Extract city or fallback
-    const city = data.results?.[0]?.components?.city || "City not found";
+    const city =
+      data.results?.[0]?.components?._normalized_city || "City not found";
     return city;
   }
 
