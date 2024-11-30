@@ -21,7 +21,7 @@ export default function useGetLocation() {
   }, []);
 
   // Function to fetch location based on latitude and longitude
-  async function fetchLocation(): Promise<string> {
+  async function fetchLocation(): Promise<{ city: string; formatted: string }> {
     if (latitude === null || longitude === null) {
       throw new Error("Coordinates are not available yet");
     }
@@ -37,14 +37,16 @@ export default function useGetLocation() {
     const data = await response.json();
     console.log(data);
 
-    // Extract city or fallback
+    // Extract city and formatted address or provide fallback values
     const city =
       data.results?.[0]?.components?._normalized_city || "City not found";
-    return city;
+    const formatted = data.results?.[0]?.formatted || "Location not found";
+
+    return { city, formatted };
   }
 
   // React Query for location fetching
-  return useQuery<string, Error>({
+  return useQuery<{ city: string; formatted: string }, Error>({
     queryKey: ["location", latitude, longitude], // Include lat/lng in key for reactivity
     queryFn: fetchLocation,
     enabled: latitude !== null && longitude !== null, // Only fetch when coordinates are available

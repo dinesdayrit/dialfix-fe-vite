@@ -19,11 +19,11 @@ export default function FeatureProviders() {
   // Pass both `defaultSearchState` and `data` to useSearchProviders
   const { results, isLoading, refetch } = useSearchProviders(
     defaultSearchState,
-    data
+    data?.city
   );
 
   useEffect(() => {
-    if (data) {
+    if (data?.city) {
       refetch();
     }
   }, [data, refetch]);
@@ -32,14 +32,14 @@ export default function FeatureProviders() {
     <div className="bg-cyan-100 py-24">
       <div className="container">
         <h1 className="text-3xl font-semibold text-gray-600">
-          Book your trusted Service Provider in {data}!
+          Book your trusted Service Provider in {data?.city}!
         </h1>
 
         <Link
           to={`/search-service-provider/${data}`}
           className="text-blue-600 hover:underline flex"
         >
-          See All Providers in {data} <ArrowUpRight />
+          Your Location {data?.formatted} <ArrowUpRight />
         </Link>
 
         <div className="grid md:grid-cols-2 gap-6 mt-10">
