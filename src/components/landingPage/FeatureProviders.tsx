@@ -39,7 +39,7 @@ export default function FeatureProviders() {
           to={`/search-service-provider/${data}`}
           className="text-blue-600 hover:underline flex"
         >
-          Your Location {data?.formatted} <ArrowUpRight />
+          See All Providers in {data?.city} <ArrowUpRight />
         </Link>
 
         <div className="grid md:grid-cols-2 gap-6 mt-10">
