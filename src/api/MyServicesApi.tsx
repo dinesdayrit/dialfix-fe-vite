@@ -158,7 +158,7 @@ export const useUpdateMyServiceAppointment = () => {
     const accessToken = await getAccessTokenSilently();
 
     const response = await fetch(
-      `${API_BASE_URL}/api/my/services/apointment/${updateStatusAppointmentRequest.appointmentId}/status`,
+      `${API_BASE_URL}/api/my/services/appointment/${updateStatusAppointmentRequest.appointmentId}/status`,
       {
         method: "PATCH",
         headers: {
