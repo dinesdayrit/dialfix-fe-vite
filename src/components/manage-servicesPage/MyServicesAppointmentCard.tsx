@@ -9,19 +9,30 @@ import {
   SelectContent,
   SelectTrigger,
 } from "../ui/select";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { APPOINTMENT_STATUS } from "@/config/appointment-status-config";
+import { useUpdateMyServiceAppointment } from "@/api/MyServicesApi";
 
 type Props = {
   appointment: Appointment;
 };
 export default function MyServicesAppointmentCard({ appointment }: Props) {
+  const { mutate: updateMyServiceAppointment } =
+    useUpdateMyServiceAppointment();
   const [status, setStatus] = useState<AppointmentStatus>(appointment.status);
 
+  useEffect(() => {
+    setStatus(appointment.status);
+  }, [appointment.status]);
+
   const handleStatusChange = async (newStatus: AppointmentStatus) => {
-    alert(newStatus);
+    updateMyServiceAppointment({
+      appointmentId: appointment._id as string,
+      status: newStatus,
+    });
     setStatus(newStatus);
   };
+
   return (
     <Card>
       <CardHeader>
