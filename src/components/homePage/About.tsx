@@ -8,13 +8,18 @@ export default function About() {
           About us
         </h2>
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <img
+          <motion.div
+            initial={{ rotateY: 180, opacity: 0 }}
+            whileInView={{ rotateY: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+          >
+            <motion.img
               src="/aboutImg.avif"
               alt="/"
               className="w-full md:h-[540px] object-cover rounded-lg"
             />
-          </div>
+          </motion.div>
           <div className="">
             <motion.p
               initial={{ opacity: 0, x: -10 }}
