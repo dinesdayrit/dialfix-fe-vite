@@ -80,15 +80,15 @@ const Hero = () => {
 
                 <div className="py-4 flex pt-8 gap-8">
                   <div className="flex flex-col items-center justify-center">
-                    <span className="font-semibold text-5xl text-blue-900">
+                    <span className="font-semibold text-5xl text-blue-900 italic">
                       <AnimatedCounter from={0} to={300} />+
                     </span>
                     <span className="text-sm text-gray-900">
                       Active Service Providers
                     </span>
                   </div>
-                  <div className="flex flex-col items-center justify-center">
-                    <span className="font-semibold text-5xl text-blue-900">
+                  <div className="flex flex-col items-center justify-center ">
+                    <span className="font-semibold text-5xl text-blue-900 italic">
                       <AnimatedCounter from={0} to={1000} />+
                     </span>
                     <span className="text-sm text-gray-900 w-full">
