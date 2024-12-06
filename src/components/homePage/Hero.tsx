@@ -1,5 +1,5 @@
 import useGetLocation from "@/api/GetLocation";
-import TransitionalText from "@/components/landingPage/TransitionalText";
+import TransitionalText from "@/components/homePage/TransitionalText";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";

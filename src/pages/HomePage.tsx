@@ -1,9 +1,9 @@
 import useGetLocation from "@/api/GetLocation";
-import About from "@/components/landingPage/About";
-import Brands from "@/components/landingPage/Brands";
-import Faq from "@/components/landingPage/Faq";
-import FeatureProviders from "@/components/landingPage/FeatureProviders";
-import Hero from "@/components/landingPage/Hero";
+import About from "@/components/homePage/About";
+import Brands from "@/components/homePage/Brands";
+import Faq from "@/components/homePage/Faq";
+import FeatureProviders from "@/components/homePage/FeatureProviders";
+import Hero from "@/components/homePage/Hero";
 import Spinner from "@/components/Spinner";
 
 export default function HomePage() {
