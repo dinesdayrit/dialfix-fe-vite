@@ -3,6 +3,7 @@ import TransitionalText from "@/components/homePage/TransitionalText";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import AnimatedCounter from "../AnimatedCounter";
 
 const Hero = () => {
   const TEXTS = ["PC-Tech", "Plumber", "Electrician", "Mechanic"];
@@ -79,13 +80,18 @@ const Hero = () => {
 
                 <div className="py-4 flex pt-8 gap-8">
                   <div className="flex flex-col items-center justify-center">
-                    <span className="font-bold text-slate-900">300</span>
+                    <span className="font-bold text-slate-900">
+                      <AnimatedCounter from={0} to={300} /> +
+                    </span>
                     <span className="text-sm text-gray-900">
                       Active Service Providers
                     </span>
                   </div>
                   <div className="flex flex-col items-center justify-center">
-                    <span className="font-bold text-slate-900">1500</span>
+                    <span className="font-bold text-slate-900">
+                      {" "}
+                      <AnimatedCounter from={0} to={1500} /> +
+                    </span>
                     <span className="text-sm text-gray-900">
                       Satisfied Clients
                     </span>

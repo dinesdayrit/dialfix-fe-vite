@@ -36,7 +36,7 @@ const AnimatedCounter = ({
     }
 
     const controls = animate(from, to, {
-      duration: 10,
+      duration: 3,
       ease: "easeOut",
       ...animationOptions,
       onUpdate(value) {
