@@ -4,7 +4,7 @@ export default function About() {
   return (
     <div className=" bg-pink-100">
       <section className="py-16 px-4">
-        <h2 className="font-semibold text-2xl md:text-5xl leading-loose text-center py-16">
+        <h2 className="font-bold text-2xl md:text-4xl leading-loose text-center py-16">
           About us
         </h2>
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
