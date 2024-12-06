@@ -25,8 +25,8 @@ export default function Header() {
       </div>
 
       <div
-        className={`flex items-center justify-between py-3 w-screen  transition-colors duration-500 shadow-md ${
-          scrolled ? "bg-slate-100 bg-opacity-90" : "bg-white"
+        className={`flex items-center justify-between py-3 w-screen  transition-colors duration-500 shadow-md backdrop-blur-lg ${
+          scrolled && " bg-opacity-0"
         }`}
       >
         <div className="container flex justify-between items-center">
