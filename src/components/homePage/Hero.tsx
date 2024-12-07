@@ -35,7 +35,7 @@ const Hero = () => {
                   >
                     <Link
                       to={`/search-service-provider/${data}`}
-                      className="inline-flex items-center justify-center border p-4 rounded-full border-blue-500 md:text-xl bg-blue-600 text-white"
+                      className="italic inline-flex items-center justify-center border p-4 rounded-full border-blue-500 md:text-xl bg-blue-600 text-white"
                     >
                       Available Service Providers in your location{" "}
                       <ArrowRight />
