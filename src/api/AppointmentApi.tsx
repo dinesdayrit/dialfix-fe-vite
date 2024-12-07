@@ -33,6 +33,7 @@ export const useGetMyAppointments = () => {
   } = useQuery({
     queryKey: ["fetchAppointments"],
     queryFn: getMyAppointmentsRequest,
+    refetchInterval: 5000,
   });
 
   return { appointments, isLoading, refetch };
