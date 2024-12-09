@@ -28,6 +28,14 @@ export default function FeatureProviders() {
     }
   }, [data, refetch]);
 
+  const handleClick = (url: string | undefined) => {
+    if (url) {
+      window.open(url, "_blank", "noopener,noreferrer");
+    } else {
+      alert("URL not available");
+    }
+  };
+
   return (
     <div className="bg-cyan-100 py-24">
       <div className="container">
@@ -41,7 +49,16 @@ export default function FeatureProviders() {
         >
           See All Providers in {data?.city} <ArrowUpRight />
         </Link>
-
+        <a
+          onClick={() => handleClick(data?.url)}
+          style={{
+            cursor: "pointer",
+            color: "blue",
+            textDecoration: "underline",
+          }}
+        >
+          See your exact location on openstreetmap
+        </a>
         <div className="grid md:grid-cols-2 gap-6 mt-10">
           {isLoading ? (
             <Spinner text="Getting Provider in your location" />
