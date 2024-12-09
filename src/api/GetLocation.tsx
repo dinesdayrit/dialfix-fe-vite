@@ -47,7 +47,8 @@ export default function useGetLocation() {
     const city =
       data.results?.[0]?.components?._normalized_city || "City not found";
     const formatted = data.results?.[0]?.formatted || "Location not found";
-    const url = data.results?.annotations?.OSM;
+    const url = data?.results?.[0]?.annotations?.OSM?.url;
+    console.log(url);
     return { city, formatted, url };
   }
 
