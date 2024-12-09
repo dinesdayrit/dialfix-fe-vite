@@ -51,10 +51,7 @@ export default function MyAppointmentsPage() {
                   </>
                 )}
               </p>
-              <Progress
-                className="animate-pulse"
-                value={statusInfo.progressValue}
-              />
+              <Progress value={statusInfo.progressValue} />
             </li>
           );
         })}
