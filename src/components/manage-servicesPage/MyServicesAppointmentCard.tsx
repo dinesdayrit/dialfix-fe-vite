@@ -33,6 +33,21 @@ export default function MyServicesAppointmentCard({ appointment }: Props) {
     setStatus(newStatus);
   };
 
+  // Format appointment date to PH timezone (12-hour format with AM/PM)
+  const formattedDate = appointment.apointmentDetails.appointmentDate
+    ? new Date(appointment.apointmentDetails.appointmentDate).toLocaleString(
+        "en-PH",
+        {
+          weekday: "short", // Short day name (e.g., "Sat")
+          year: "numeric", // Full year (e.g., 2024)
+          month: "short", // Short month name (e.g., "Dec")
+          day: "numeric", // Day of the month (e.g., 21)
+          hour: "2-digit", // Hour in 12-hour format (e.g., "01")
+          minute: "2-digit", // Minute (e.g., "00")
+          hour12: true, // Use 12-hour format with AM/PM
+        }
+      )
+    : "No appointment date"; // Fallback if appointmentDate is undefined
   return (
     <Card>
       <CardHeader>
@@ -53,9 +68,7 @@ export default function MyServicesAppointmentCard({ appointment }: Props) {
 
           <div>
             Appointment Date:
-            <span className="ml-2 font-normal">
-              {appointment.apointmentDetails.appointmentDate} ,
-            </span>
+            <span className="ml-2 font-normal">{formattedDate} ,</span>
           </div>
         </CardTitle>
         <Separator />
