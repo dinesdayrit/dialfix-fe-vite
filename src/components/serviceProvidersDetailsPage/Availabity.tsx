@@ -7,47 +7,20 @@ import { useParams } from "react-router-dom";
 
 export function Availability() {
   const [date, setDate] = React.useState<Date | undefined>(new Date());
+  const [time, setTime] = React.useState<string | undefined>(undefined);
   const formattedDate = `${date?.toString().split(" ").slice(0, 4).join(" ")}`;
   const { mutate: createAppointment } = useCreateAppointment();
   const { serviceProviderId } = useParams<{ serviceProviderId: string }>();
 
   const timeStamp = [
-    {
-      time: "8:30",
-      period: "am",
-    },
-    {
-      time: "9:00",
-      period: "am",
-    },
-    {
-      time: "9:30",
-      period: "am",
-    },
-    {
-      time: "10:00",
-      period: "am",
-    },
-    {
-      time: "10:30",
-      period: "am",
-    },
-    {
-      time: "1:00",
-      period: "pm",
-    },
-    {
-      time: "1:30",
-      period: "pm",
-    },
-    {
-      time: "2:00",
-      period: "pm",
-    },
-    {
-      time: "2:30",
-      period: "pm",
-    },
+    { time: "8:00", period: "am" },
+    { time: "9:00", period: "am" },
+    { time: "10:00", period: "am" },
+    { time: "11:00", period: "am" },
+    { time: "1:00", period: "pm" },
+    { time: "2:00", period: "pm" },
+    { time: "3:00", period: "pm" },
+    { time: "4:00", period: "pm" },
   ];
 
   const onCheckout = async (userFormData: any) => {
@@ -82,14 +55,19 @@ export function Availability() {
           <div className="px-4">
             <p className="text-blue-700">You have selected</p>
             <h2 className="font-semibold text-3xl border-b-2 py-2">
-              {formattedDate}
+              {formattedDate} at {time}
             </h2>
             <div className="py-6 grid grid-cols-3 gap-2">
               {timeStamp.map((item, i) => {
                 return (
                   <Button
                     key={i}
-                    className="bg-white rounded border text-black hover:bg-gray-100"
+                    className={`${
+                      time === `${item.time} ${item.period}`
+                        ? "bg-blue-500 text-white"
+                        : "bg-white text-black"
+                    } rounded border hover:bg-gray-100`}
+                    onClick={() => setTime(`${item.time} ${item.period}`)}
                   >
                     {item.time}
                     {item.period}
