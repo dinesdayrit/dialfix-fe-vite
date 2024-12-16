@@ -31,6 +31,18 @@ export function Availability() {
       return;
     }
 
+    // Combine date and time
+    const [hours, minutes] = time.split(/[: ]/);
+    const isPM = time.includes("pm") && hours !== "12";
+    const isAM = time.includes("am") && hours === "12";
+    const combinedDate = new Date(date);
+    combinedDate.setHours(
+      isPM ? parseInt(hours) + 12 : isAM ? 0 : parseInt(hours),
+      parseInt(minutes),
+      0,
+      0
+    );
+
     const appointmentData = {
       serviceProvider: serviceProviderId,
       apointmentDetails: {
@@ -38,7 +50,7 @@ export function Availability() {
         name: userFormData.name,
         addressLine1: userFormData.addressLine1,
         city: userFormData.city,
-        appointmentDate: date.toISOString(),
+        appointmentDate: combinedDate.toISOString(),
       },
     };
 
