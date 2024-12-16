@@ -24,8 +24,10 @@ export function Availability() {
   ];
 
   const onCheckout = async (userFormData: any) => {
-    if (!date || !serviceProviderId) {
-      alert("Please select a date and ensure provider details are loaded.");
+    if (!date || !time || !serviceProviderId) {
+      alert(
+        "Please select a date, time, and ensure provider details are loaded."
+      );
       return;
     }
 
