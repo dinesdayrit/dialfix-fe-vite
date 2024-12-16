@@ -9,16 +9,19 @@ import Spinner from "@/components/Spinner";
 export default function HomePage() {
   const { isLoading } = useGetLocation();
 
-  if (isLoading) {
-    return <Spinner text="getting your location" />;
-  }
   return (
     <>
-      <Hero />
-      <Brands />
-      <FeatureProviders />
-      <About />
-      <Faq />
+      {isLoading ? (
+        <Spinner text="Getting your location..." />
+      ) : (
+        <>
+          <Hero />
+          <Brands />
+          <FeatureProviders />
+          <About />
+          <Faq />
+        </>
+      )}
     </>
   );
 }
