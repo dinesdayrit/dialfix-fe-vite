@@ -24,6 +24,23 @@ export default function MyAppointmentsPage() {
             APPOINTMENT_STATUS.find((a) => a.value === appointment.status) ||
             APPOINTMENT_STATUS[0];
 
+          // Check if appointmentDate is defined before using it
+          const appointmentDate =
+            appointment.apointmentDetails?.appointmentDate;
+
+          // Only format the date if appointmentDate exists
+          const formattedDate = appointmentDate
+            ? new Date(appointmentDate).toLocaleString("en-PH", {
+                weekday: "short", // Short day name (e.g., "Sat")
+                year: "numeric", // Full year (e.g., 2024)
+                month: "short", // Short month name (e.g., "Dec")
+                day: "numeric", // Day of the month (e.g., 21)
+                hour: "2-digit", // Hour in 12-hour format (e.g., "01")
+                minute: "2-digit", // Minute (e.g., "00")
+                hour12: true, // Use 12-hour format with AM/PM
+              })
+            : "No appointment date";
+
           return (
             <li key={index} className="pt-4">
               <Separator className="mb-2" />
@@ -37,8 +54,7 @@ export default function MyAppointmentsPage() {
                 {appointment.ServiceProvider?.city}
               </p>
               <p className="mb-2">
-                <strong>Appointment Date:</strong>{" "}
-                {appointment.apointmentDetails?.appointmentDate}
+                <strong>Appointment Date:</strong> {formattedDate}
               </p>
               <p className="uppercase text-lg">
                 <strong>Appointment Status:</strong> {appointment?.status}{" "}
