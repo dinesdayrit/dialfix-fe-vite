@@ -34,7 +34,7 @@ const Hero = () => {
                     transition={{ duration: 0.3 }}
                   >
                     <Link
-                      to={`/search-service-provider/${data}`}
+                      to={`/search-service-provider/${data?.city}`}
                       className="italic inline-flex items-center justify-center border p-4 rounded-full border-blue-500 md:text-xl bg-blue-600 text-white"
                     >
                       Available Service Providers in your location{" "}
