@@ -44,7 +44,7 @@ export default function FeatureProviders() {
         </h1>
 
         <Link
-          to={`/search-service-provider/${data}`}
+          to={`/search-service-provider/${data?.city}`}
           className="text-blue-600 hover:underline flex"
         >
           See All Providers in {data?.city} <ArrowUpRight />
