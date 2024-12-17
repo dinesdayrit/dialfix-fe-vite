@@ -7,21 +7,23 @@ import Hero from "@/components/homePage/Hero";
 import Spinner from "@/components/Spinner";
 
 export default function HomePage() {
-  const { isLoading } = useGetLocation();
+  const { data } = useGetLocation();
 
+  const isLoading = !data?.city;
   return (
     <>
-      {isLoading ? (
-        <Spinner text="Getting your location..." />
-      ) : (
-        <>
-          <Hero />
-          <Brands />
-          <FeatureProviders />
-          <About />
-          <Faq />
-        </>
-      )}
+      <>
+        {isLoading && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50">
+            <Spinner text="Getting your location..." />
+          </div>
+        )}
+        <Hero />
+        <Brands />
+        <FeatureProviders />
+        <About />
+        <Faq />
+      </>
     </>
   );
 }
