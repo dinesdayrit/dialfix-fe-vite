@@ -3,16 +3,31 @@ import Spinner from "@/components/Spinner";
 import { Separator } from "@/components/ui/separator";
 import { Progress } from "@/components/ui/progress";
 import { APPOINTMENT_STATUS } from "@/config/appointment-status-config";
+import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
+import useGetLocation from "@/api/GetLocation";
 
 export default function MyAppointmentsPage() {
   const { appointments, isLoading } = useGetMyAppointments();
+  const { data } = useGetLocation();
 
   if (isLoading) {
     return <Spinner text="Getting Appointments..." />;
   }
 
   if (!appointments || appointments.length === 0) {
-    return <div>No appointments found.</div>;
+    return (
+      <div className="container flex flex-col items-center justify-center gap-4s mt-10">
+        <p>No appointments found.</p>
+        <Link
+          to={`/search-service-provider/${data?.city}`}
+          className="text-blue-600 hover:underline flex"
+        >
+          Book appointment to your Trusted Service Provider in {data?.city}{" "}
+          <ArrowUpRight />
+        </Link>
+      </div>
+    );
   }
 
   return (
