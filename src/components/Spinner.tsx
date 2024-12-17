@@ -3,11 +3,11 @@ export default function Spinner({ text }: { text?: string }) {
     <div className="flex flex-col items-center justify-center mt-20 relative">
       {/* Spinner */}
       <div className="relative flex items-center justify-center">
-        <div className="h-24 w-24 animate-spin rounded-full border-4 border-gray-300 border-t-green-500 dark:border-gray-600 dark:border-t-gray-400 bg-white" />
+        <div className="h-24 w-24 animate-spin rounded-full border-4 border-white border-t-green-500 dark:border-gray-600 dark:border-t-gray-400 bg-white" />
 
         {/* Logo inside the spinner */}
         <div className="absolute flex items-center justify-center">
-          <img src="/logo.png" alt="logo" className="h-44 object-cover mt-3" />
+          <img src="/logo.png" alt="logo" className="h-20" />
         </div>
       </div>
 
