@@ -10,22 +10,28 @@ const Hero = () => {
   const { data } = useGetLocation();
 
   return (
-    <div className="bg-gradient-to-b from-cyan-300 to-green-300 ">
-      <div className="relative pb-[110px] pt-[50px] lg:pt-[80px] max-w-6xl mx-auto">
+    <div
+      className="bg-cover bg-center bg-no-repeat mt-[-87px]"
+      style={{
+        backgroundImage:
+          'url("https://dam.buhlergroup.com/image/64b21ce47f1c4c1a905d15ffbcc5b9ca/-FJPG-C1419x798%2C461%2C0-S3200x1800-S1600x900")',
+      }}
+    >
+      <div className="relative pb-[110px] pt-[150px] lg:pt-[180px] max-w-6xl mx-auto">
         <div className="container p-4">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4 lg:w-6/12">
               <div className="hero-content">
-                <h1 className="mb-5 text-4xl font-bold !leading-[1.208] text-sky-900 sm:text-[42px] lg:text-[40px] xl:text-5xl flex flex-wrap items-center gap-3">
+                <h1 className="mb-5 text-4xl font-bold !leading-[1.208] text-white sm:text-[42px] lg:text-[40px] xl:text-5xl flex flex-wrap items-center gap-3">
                   <span>Dial your</span>
                   <TransitionalText
-                    className="text-4xl text-green-700"
+                    className="text-4xl text-blue-400"
                     TEXTS={TEXTS}
                   />
                   <br />
                   <span>with just a few taps!</span>
                 </h1>
-                <p className="mb-8 max-w-[480px] text-gray-800 text-body-color ">
+                <p className="mb-8 max-w-[480px] text-gray-100 text-body-color ">
                   Find the right fix, fast. Your trusted pros, all in one app.
                 </p>
                 <div className="flex flex-col items-start">

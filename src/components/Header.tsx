@@ -38,7 +38,7 @@ export default function Header() {
               } text-orange-500`}
             >
               dial
-              <span className="text-green-600 flex justify-center items-center">
+              <span className="text-green-400 flex justify-center items-center">
                 Fix <Wrench className="h-5" />
               </span>
             </Link>
