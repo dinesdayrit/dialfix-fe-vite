@@ -27,7 +27,7 @@ export default function About() {
           </motion.div>
           <div className="">
             <motion.p
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 3, ease: "easeOut" }}
@@ -44,7 +44,7 @@ export default function About() {
             </motion.p>
 
             <motion.p
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 10 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 3, ease: "easeOut" }}
