@@ -4,9 +4,14 @@ export default function About() {
   return (
     <div className=" bg-pink-100">
       <section className="py-16 px-4">
-        <h2 className="font-bold text-2xl md:text-4xl leading-loose text-center py-16">
+        <motion.h2 
+        initial={{ opacity: 0}} 
+        whileInView={{ opacity: 1, x: 0 }} 
+        viewport={{ once: false }} 
+        transition={{ duration: 3, ease: "easeOut" }}
+        className="font-bold text-2xl md:text-4xl leading-loose text-center py-16">
           About us
-        </h2>
+        </motion.h2>
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
           <motion.div
             initial={{ rotateY: 180, opacity: 0 }}
@@ -22,10 +27,10 @@ export default function About() {
           </motion.div>
           <div className="">
             <motion.p
-              initial={{ opacity: 0, x: -10 }}
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
+              viewport={{ once: false }}
+              transition={{ duration: 3, ease: "easeOut" }}
               className="font-serif text-slate-600 mb-6 text-justify md:text-lg"
             >
               <span className="font-bold text-green-500 text-xl">DialFix</span>{" "}
@@ -39,10 +44,10 @@ export default function About() {
             </motion.p>
 
             <motion.p
-              initial={{ opacity: 0, x: 10 }}
+              initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
+              viewport={{ once: false }}
+              transition={{ duration: 3, ease: "easeOut" }}
               className="font-serif text-slate-600 mb-2 text-justify md:text-lg"
             >
               <span className="font-bold text-orange-500 text-xl">
