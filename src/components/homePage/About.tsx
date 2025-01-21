@@ -4,19 +4,19 @@ export default function About() {
   return (
     <div className=" bg-pink-100">
       <section className="py-16 px-4">
-        <motion.h2 
-        initial={{ opacity: 0}} 
-        whileInView={{ opacity: 1, x: 0 }} 
-        viewport={{ once: false }} 
-        transition={{ duration: 3, ease: "easeOut" }}
-        className="font-bold text-2xl md:text-4xl leading-loose text-center py-16">
+        <motion.h2
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 3, ease: "easeOut" }}
+          className="font-bold text-2xl md:text-4xl leading-loose text-center py-16"
+        >
           About us
         </motion.h2>
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
           <motion.div
             initial={{ rotateY: 180, opacity: 0 }}
             whileInView={{ rotateY: 0, opacity: 1 }}
-            viewport={{ once: true }}
             transition={{ duration: 1.2, ease: "easeOut" }}
           >
             <motion.img
