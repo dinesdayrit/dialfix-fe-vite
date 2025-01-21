@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { motion } from "framer-motion";
 
 export default function Faq() {
   const faqs = [
@@ -40,18 +41,34 @@ export default function Faq() {
   ];
 
   return (
-    <div className="container flex flex-col items-center justify-center p-12">
-      <h1 className="text-2xl font-bold mb-6">
-        Frequently Asked Questions (FAQ)
-      </h1>
-      <Accordion type="single" collapsible className="w-full max-w-lg">
-        {faqs.map((faq, index) => (
-          <AccordionItem key={index} value={`faq-${index}`}>
-            <AccordionTrigger>{faq.question}</AccordionTrigger>
-            <AccordionContent>{faq.answer}</AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
+    <div className="container grid grid-cols-1 lg:grid-cols-2 ">
+      <div className=" flex flex-col justify-center lg:justify-start items-center lg:items-start p-12">
+        <h1 className="text-2xl font-bold mb-6">
+          Frequently Asked Questions (FAQ)
+        </h1>
+        <Accordion type="single" collapsible className="w-full max-w-lg">
+          {faqs.map((faq, index) => (
+            <AccordionItem key={index} value={`faq-${index}`}>
+              <AccordionTrigger>{faq.question}</AccordionTrigger>
+              <AccordionContent>{faq.answer}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
+
+      <div className=" flex flex-col items-center justify-center p-12">
+        <motion.div
+          initial={{ rotateY: 180, opacity: 0 }}
+          whileInView={{ rotateY: 0, opacity: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+        >
+          <motion.img
+            src="/faq.jpg"
+            alt="/"
+            className="w-full md:h-[540px] object-cover rounded-lg"
+          />
+        </motion.div>
+      </div>
     </div>
   );
 }
